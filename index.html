@@ -69,6 +69,13 @@ a{color:inherit}
 .nav-link:hover,.nav-link:focus-visible{opacity:1;text-decoration:underline;text-underline-offset:4px}
 .nav-voci{display:flex;align-items:center;gap:1.75rem}
 @media(min-width:820px){.nav-link{display:inline}}
+/* telefono: marchio e bottone devono stare nella riga senza toccare il bordo */
+@media(max-width:480px){
+  .nav .wrap{padding:0 1rem;gap:.75rem}
+  .marchio{font-size:1.02rem}
+  .nav .cta.piccolo{font-size:.74rem;padding:.5em .75em}
+}
+@media(max-width:350px){.cta-lungo{display:none}}
 
 /* ---------- bottone ---------- */
 .cta{
@@ -255,7 +262,7 @@ h3{font-size:1.35rem;margin-bottom:.5rem}
       <a class="nav-link" href="#credenziale">La Credenziale</a>
       <a class="nav-link" href="#pooling">Condividere il Cammino</a>
       <a class="nav-link" href="#contatti">Contatti</a>
-      <a class="cta piccolo" href="https://synvium.flutterflow.app">Unisciti al Cammino</a>
+      <a class="cta piccolo" href="https://synvium.flutterflow.app">Unisciti<span class="cta-lungo"> al Cammino</span></a>
     </div>
   </div>
 </nav>
