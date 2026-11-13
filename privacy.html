@@ -15,7 +15,7 @@
 :root{--verde:#2F3D24;--carta:#FAF7EF;--ambra:#B7791F;--inchiostro:#26221C;--pietra:#736C60}
 *{box-sizing:border-box;margin:0}
 body{background:var(--carta);color:var(--inchiostro);font:400 1rem/1.65 'Archivo',system-ui,sans-serif}
-.wrap{max-width:42rem;margin:0 auto;padding:3rem 1.5rem 4rem}
+.wrap{max-width:42rem;margin:0 auto;padding:2.5rem 1.5rem 3rem}
 .torna{display:inline-block;margin-bottom:2rem;color:var(--ambra);font-weight:600;text-decoration:none}
 h1{font:500 clamp(1.9rem,5vw,2.6rem)/1.15 'Newsreader',Georgia,serif;margin-bottom:.4rem}
 .data{color:var(--pietra);font-size:.9rem;margin-bottom:2rem}
@@ -25,11 +25,22 @@ p+p,p+ul,ul+p{margin-top:.7rem}
 ul{padding-left:1.2rem}
 li+li{margin-top:.3rem}
 a{color:var(--ambra)}
+.barra{background:var(--verde);border-bottom:1px solid rgba(143,166,120,.25)}
+.barra div{max-width:42rem;margin:0 auto;padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between}
+.barra a{font:500 1.15rem 'Newsreader',Georgia,serif;color:var(--carta);text-decoration:none}
+.barra a em{color:#8FA678}
+.barra a.indietro{font:400 .9rem 'Archivo',sans-serif;opacity:.85}
+.piede{background:#242F1B;color:#B9C2AC;font-size:.82rem;padding:1.6rem 0;margin-top:2rem}
+.piede div{max-width:42rem;margin:0 auto;padding:0 1.5rem}
+.piede a{color:var(--carta)}
 </style>
 </head>
 <body>
+<header class="barra"><div>
+  <a href="index.html">Cammino <em>del Montefeltro</em></a>
+  <a class="indietro" href="index.html">← Torna al sito</a>
+</div></header>
 <main class="wrap">
-  <a class="torna" href="index.html">← Cammino del Montefeltro</a>
   <h1>Informativa sulla privacy</h1>
   <p class="data">Ultimo aggiornamento: novembre 2026 · <a href="condizioni.html">Condizioni d'uso</a></p>
 
@@ -134,5 +145,9 @@ a{color:var(--ambra)}
      <a href="https://www.garanteprivacy.it/" rel="noopener">Garante per la
      protezione dei dati personali</a>.</p>
 </main>
+<footer class="piede"><div>
+  Il Cammino del Montefeltro è un progetto di Synvium ·
+  <a href="condizioni.html">Condizioni d'uso</a> · <a href="privacy.html">Privacy</a>
+</div></footer>
 </body>
 </html>

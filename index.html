@@ -193,6 +193,8 @@ h3{font-size:1.35rem;margin-bottom:.5rem}
 .tappa-credito{font-size:.72rem;color:var(--pietra);margin:.4rem 0 2rem}
 .tappa-profilo{width:100%;height:auto;display:block}
 @media(min-width:860px){.tappa-profilo{height:100%}}
+/* sul telefono il profilo si rimpicciolisce a metà: le scritte vanno ingrandite */
+@media(max-width:640px){.tappa-profilo text{font-size:13px}.tappa-profilo text[font-size="8.5"]{font-size:10px}}
 .tappa-video-placeholder{
   width:100%;aspect-ratio:4/3;display:grid;place-items:center;
   background:var(--carta-scura);color:var(--pietra);
@@ -281,9 +283,8 @@ h3{font-size:1.35rem;margin-bottom:.5rem}
          pendici del Monte Carpegna, ritrova le opere e portale al sicuro
          attraversando tutto il Montefeltro — una terra di storia, cultura, natura
          e… buon cibo.</p>
-      <p>Sulle tracce dell'Operazione
-       Salvataggio, recupera un'opera d'arte in ognuna delle 6 tappe del Cammino,
-       custodiscile nella tua credenziale, e portale al sicuro.
+      <p>In ognuna delle sei città del Cammino ti aspetta un'opera da recuperare
+       e custodire nella tua credenziale.
        <a href="https://synvium.flutterflow.app">Unisciti al Cammino</a> per
        ottenere le tracce GPX e informazioni pratiche sui luoghi che incontrerai.</p>
     </div>
@@ -306,7 +307,7 @@ h3{font-size:1.35rem;margin-bottom:.5rem}
           </video>
         </div>
         <div class="tappa-riga">
-          <a class="tappa-mappa-link" href="img/tappe/pesaro-gradara-mappa-grande.webp" target="_blank" rel="noopener" title="Apri la mappa grande"><img class="tappa-mappa" src="img/tappe/pesaro-gradara-mappa.webp" alt="Mappa del percorso a piedi da Pesaro a Gradara lungo il Monte San Bartolo, Fiorenzuola di Focara e Casteldimezzo, con marcatori di distanza ogni 5 km"></a>
+          <a class="tappa-mappa-link" href="img/tappe/pesaro-gradara-mappa-grande.webp" target="_blank" rel="noopener" title="Apri la mappa grande"><img class="tappa-mappa" loading="lazy" decoding="async" src="img/tappe/pesaro-gradara-mappa.webp" alt="Mappa del percorso a piedi da Pesaro a Gradara lungo il Monte San Bartolo, Fiorenzuola di Focara e Casteldimezzo, con marcatori di distanza ogni 5 km"></a>
           <svg class="tappa-profilo" viewBox="0 0 640 270" preserveAspectRatio="none" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-label="Profilo altimetrico da Pesaro a Gradara: 0-21,5 km, quota da 0 a circa 200 m, con Santa Marina Alta, Monte Trebbio, Casteldimezzo e Colombarone">
             <rect x="6" y="6" width="628" height="258" rx="4" stroke="var(--ambra)" stroke-width="2"/>
             <rect x="14" y="14" width="612" height="242" rx="2" stroke="var(--ambra)" stroke-width="1"/>
@@ -370,7 +371,7 @@ h3{font-size:1.35rem;margin-bottom:.5rem}
           <div class="tappa-video-placeholder">Video in arrivo</div>
         </div>
         <div class="tappa-riga">
-          <a class="tappa-mappa-link" href="img/tappe/gradara-mondaino-mappa-grande.webp" target="_blank" rel="noopener" title="Apri la mappa grande"><img class="tappa-mappa" src="img/tappe/gradara-mondaino-mappa.webp" alt="Mappa del percorso a piedi da Gradara a Mondaino attraverso Tavullia e Montegridolfo, con marcatori di distanza ogni 5 km"></a>
+          <a class="tappa-mappa-link" href="img/tappe/gradara-mondaino-mappa-grande.webp" target="_blank" rel="noopener" title="Apri la mappa grande"><img class="tappa-mappa" loading="lazy" decoding="async" src="img/tappe/gradara-mondaino-mappa.webp" alt="Mappa del percorso a piedi da Gradara a Mondaino attraverso Tavullia e Montegridolfo, con marcatori di distanza ogni 5 km"></a>
           <svg class="tappa-profilo" viewBox="0 0 640 270" preserveAspectRatio="none" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-label="Profilo altimetrico da Gradara a Mondaino: 0-18 km, quota da 30 a circa 380 m, con Tavullia e il borgo di Montegridolfo">
             <rect x="6" y="6" width="628" height="258" rx="4" stroke="var(--ambra)" stroke-width="2"/>
             <rect x="14" y="14" width="612" height="242" rx="2" stroke="var(--ambra)" stroke-width="1"/>
@@ -397,7 +398,6 @@ h3{font-size:1.35rem;margin-bottom:.5rem}
             <text x="34" y="264" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">Gradara · 0 km</text>
             <text x="198.1" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">5</text>
             <text x="362.2" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">10</text>
-            <text x="526.3" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">15</text>
             <text x="622" y="264" text-anchor="end" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">Mondaino · 18 km</text>
             <path d="M276.7 155.9 h7 v4.5 h-7 z M276.7 155.9 l3.5-4 3.5 4 z" fill="var(--ambra)"/>
             <text x="280.2" y="146.9" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Tavullia</text>
@@ -430,7 +430,7 @@ h3{font-size:1.35rem;margin-bottom:.5rem}
           </video>
         </div>
         <div class="tappa-riga">
-          <a class="tappa-mappa-link" href="img/tappe/mondaino-urbino-mappa-grande.webp" target="_blank" rel="noopener" title="Apri la mappa grande"><img class="tappa-mappa" src="img/tappe/mondaino-urbino-mappa.webp" alt="Mappa del percorso a piedi da Mondaino a Urbino attraverso Montecalvo in Foglia, con marcatori di distanza ogni 5 km"></a>
+          <a class="tappa-mappa-link" href="img/tappe/mondaino-urbino-mappa-grande.webp" target="_blank" rel="noopener" title="Apri la mappa grande"><img class="tappa-mappa" loading="lazy" decoding="async" src="img/tappe/mondaino-urbino-mappa.webp" alt="Mappa del percorso a piedi da Mondaino a Urbino attraverso Montecalvo in Foglia, con marcatori di distanza ogni 5 km"></a>
           <svg class="tappa-profilo" viewBox="0 0 640 270" preserveAspectRatio="none" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-label="Profilo altimetrico da Mondaino a Urbino: 0-23,5 km, quota da 100 a circa 450 m, con Montecalvo in Foglia e Pallino">
             <rect x="6" y="6" width="628" height="258" rx="4" stroke="var(--ambra)" stroke-width="2"/>
             <rect x="14" y="14" width="612" height="242" rx="2" stroke="var(--ambra)" stroke-width="1"/>
@@ -459,7 +459,6 @@ h3{font-size:1.35rem;margin-bottom:.5rem}
             <text x="159.2" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">5</text>
             <text x="284.5" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">10</text>
             <text x="409.7" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">15</text>
-            <text x="534.9" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">20</text>
             <text x="622" y="264" text-anchor="end" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">Urbino · 23,5 km</text>
             <path d="M253.4 117.7 h7 v4.5 h-7 z M253.4 117.7 l3.5-4 3.5 4 z" fill="var(--ambra)"/>
             <text x="256.9" y="108.7" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Montecalvo in Foglia</text>
@@ -494,7 +493,7 @@ h3{font-size:1.35rem;margin-bottom:.5rem}
           </video>
         </div>
         <div class="tappa-riga">
-          <a class="tappa-mappa-link" href="img/tappe/urbino-sassocorvaro-mappa-grande.webp" target="_blank" rel="noopener" title="Apri la mappa grande"><img class="tappa-mappa" src="img/tappe/urbino-sassocorvaro-mappa.webp" alt="Mappa del percorso a piedi da Urbino a Mercatale di Sassocorvaro attraverso Gadana e Pieve di Cagna, con marcatori di distanza ogni 5 km"></a>
+          <a class="tappa-mappa-link" href="img/tappe/urbino-sassocorvaro-mappa-grande.webp" target="_blank" rel="noopener" title="Apri la mappa grande"><img class="tappa-mappa" loading="lazy" decoding="async" src="img/tappe/urbino-sassocorvaro-mappa.webp" alt="Mappa del percorso a piedi da Urbino a Mercatale di Sassocorvaro attraverso Gadana e Pieve di Cagna, con marcatori di distanza ogni 5 km"></a>
           <svg class="tappa-profilo" viewBox="0 0 640 270" preserveAspectRatio="none" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-label="Profilo altimetrico da Urbino a Mercatale di Sassocorvaro: 0-25,5 km, quota da 180 a 500 m, con Gadana, Pieve di Cagna e Sassocorvaro">
             <rect x="6" y="6" width="628" height="258" rx="4" stroke="var(--ambra)" stroke-width="2"/>
             <rect x="14" y="14" width="612" height="242" rx="2" stroke="var(--ambra)" stroke-width="1"/>
@@ -561,7 +560,7 @@ h3{font-size:1.35rem;margin-bottom:.5rem}
           <div class="tappa-video-placeholder">Video in arrivo</div>
         </div>
         <div class="tappa-riga">
-          <a class="tappa-mappa-link" href="img/tappe/sassocorvaro-carpegna-mappa-grande.webp" target="_blank" rel="noopener" title="Apri la mappa grande"><img class="tappa-mappa" src="img/tappe/sassocorvaro-carpegna-mappa.webp" alt="Mappa del percorso a piedi da Mercatale di Sassocorvaro a Carpegna attraverso Petrelle e Pietrarubbia, con marcatori di distanza ogni 5 km"></a>
+          <a class="tappa-mappa-link" href="img/tappe/sassocorvaro-carpegna-mappa-grande.webp" target="_blank" rel="noopener" title="Apri la mappa grande"><img class="tappa-mappa" loading="lazy" decoding="async" src="img/tappe/sassocorvaro-carpegna-mappa.webp" alt="Mappa del percorso a piedi da Mercatale di Sassocorvaro a Carpegna attraverso Petrelle e Pietrarubbia, con marcatori di distanza ogni 5 km"></a>
           <svg class="tappa-profilo" viewBox="0 0 640 270" preserveAspectRatio="none" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-label="Profilo altimetrico da Mercatale di Sassocorvaro a Carpegna: 0-20,4 km, quota da 220 a 800 m, il punto più alto delle cinque tappe, con Petrelle, Pietrarubbia e Ponte Cappuccini">
             <rect x="6" y="6" width="628" height="258" rx="4" stroke="var(--ambra)" stroke-width="2"/>
             <rect x="14" y="14" width="612" height="242" rx="2" stroke="var(--ambra)" stroke-width="1"/>
@@ -591,7 +590,7 @@ h3{font-size:1.35rem;margin-bottom:.5rem}
             <path d="M371.8 94.8 h7 v4.5 h-7 z M371.8 94.8 l3.5-4 3.5 4 z" fill="var(--ambra)"/>
             <text x="375.3" y="85.8" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Petrelle</text>
             <path d="M449.9 54.0 h7 v4.5 h-7 z M449.9 54.0 l3.5-4 3.5 4 z" fill="var(--ambra)"/>
-            <text x="453.4" y="45.0" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Pietrarubbia</text>
+            <text x="460" y="45.0" text-anchor="end" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Pietrarubbia</text>
             <path d="M522.3 56.0 h7 v4.5 h-7 z M522.3 56.0 l3.5-4 3.5 4 z" fill="var(--ambra)"/>
             <text x="525.8" y="47.0" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Ponte Cappuccini</text>
           </svg>
@@ -657,7 +656,7 @@ h3{font-size:1.35rem;margin-bottom:.5rem}
           <div class="tappa-video-placeholder">Video in arrivo</div>
         </div>
         <div class="tappa-riga">
-          <a class="tappa-mappa-link" href="img/tappe/carpegna-extra-mappa-grande.webp" target="_blank" rel="noopener" title="Apri la mappa grande"><img class="tappa-mappa" src="img/tappe/carpegna-extra-mappa.webp" alt="Mappa dell'anello facoltativo da Carpegna al Sasso Simone, Monte Simoncello e Eremo della Madonna del Faggio, con marcatori di distanza ogni 5 km"></a>
+          <a class="tappa-mappa-link" href="img/tappe/carpegna-extra-mappa-grande.webp" target="_blank" rel="noopener" title="Apri la mappa grande"><img class="tappa-mappa" loading="lazy" decoding="async" src="img/tappe/carpegna-extra-mappa.webp" alt="Mappa dell'anello facoltativo da Carpegna al Sasso Simone, Monte Simoncello e Eremo della Madonna del Faggio, con marcatori di distanza ogni 5 km"></a>
           <svg class="tappa-profilo" viewBox="0 0 640 270" preserveAspectRatio="none" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-label="Profilo altimetrico dell'anello da Carpegna: 20 km, quota da 720 a 1380 m, con Sasso Simone, Monte Simoncello e l'Eremo della Madonna del Faggio">
             <rect x="6" y="6" width="628" height="258" rx="4" stroke="var(--ambra)" stroke-width="2"/>
             <rect x="14" y="14" width="612" height="242" rx="2" stroke="var(--ambra)" stroke-width="1"/>
@@ -757,7 +756,7 @@ h3{font-size:1.35rem;margin-bottom:.5rem}
              arricchiranno con ulteriori meriti.</p>
         </div>
       </div>
-      <img class="credenziale-img" src="img/credenziale-app.webp" width="502" height="1024" alt="La credenziale nell'app sul telefono: le città del Cammino, ognuna con l'opera ancora da ritrovare">
+      <img class="credenziale-img" loading="lazy" decoding="async" src="img/credenziale-app.webp" width="502" height="1024" alt="La credenziale nell'app sul telefono: le città del Cammino, ognuna con l'opera ancora da ritrovare">
     </div>
     <p class="cta-fine"><a class="cta" href="https://synvium.flutterflow.app">Unisciti al Cammino</a></p>
   </div>
