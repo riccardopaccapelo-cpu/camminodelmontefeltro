@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cammino del Montefeltro — 109 km dal mare alla montagna</title>
+<meta name="description" content="Cinque tappe a piedi da Pesaro a Carpegna, sulle orme delle opere d'arte nascoste durante la Seconda Guerra Mondiale. Mappe, tracce GPX e alloggi da condividere con altri camminatori.">
+<meta property="og:title" content="Cammino del Montefeltro">
+<meta property="og:description" content="109 km a piedi dal mare alla montagna, sulle tracce delle opere d'arte nascoste durante la Seconda Guerra Mondiale.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<link rel="canonical" href="https://camminodelmontefeltro.it/">
+<meta property="og:url" content="https://camminodelmontefeltro.it/">
+<meta property="og:image" content="https://camminodelmontefeltro.it/img/og-cammino.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Illustrazione: un camminatore con un quadro sulle spalle davanti alla Rocca di Sassocorvaro e alle colline del Montefeltro">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preload" href="fonts/newsreader-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/archivo-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Font ospitati nel sito (licenza SIL OFL): nessuna richiesta a Google, quindi
+   nessun dato dei visitatori trasferito a terzi. */
+@font-face{font-family:'Newsreader';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/newsreader-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Newsreader';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/newsreader-latin-500-normal.woff2') format('woff2')}
+@font-face{font-family:'Newsreader';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/newsreader-latin-600-normal.woff2') format('woff2')}
+@font-face{font-family:'Newsreader';font-style:italic;font-weight:400;font-display:swap;src:url('fonts/newsreader-latin-400-italic.woff2') format('woff2')}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/archivo-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/archivo-latin-500-normal.woff2') format('woff2')}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/archivo-latin-600-normal.woff2') format('woff2')}
+:root{
+  --verde:#2F3D24;
+  --verde-medio:#4A5C39;
+  --verde-chiaro:#8FA678;
+  --carta:#FAF7EF;
+  --carta-scura:#EFE9DA;
+  --ambra:#B7791F;
+  --inchiostro:#26221C;
+  --pietra:#736C60;
+  --misura:34rem;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  background:var(--carta);
+  color:var(--inchiostro);
+  font-family:'Archivo',system-ui,sans-serif;
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  padding-top:64px; /* spazio per l'header fisso */
+}
+h1,h2,h3,.serif{font-family:'Newsreader',Georgia,serif;font-weight:400;line-height:1.12;letter-spacing:-.015em}
+a{color:inherit}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.5rem}
+.prosa{max-width:var(--misura)}
+.prosa p+p{margin-top:1.1em}
+
+/* ---------- navigazione ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--verde);border-bottom:1px solid rgba(143,166,120,.25)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:1.5rem}
+.marchio{font-family:'Newsreader',serif;font-size:1.15rem;color:var(--carta);text-decoration:none;white-space:nowrap}
+.marchio em{font-style:italic;color:var(--verde-chiaro)}
+.nav-link{display:none;color:var(--carta);text-decoration:none;font-size:.9rem;opacity:.8}
+.nav-link:hover,.nav-link:focus-visible{opacity:1;text-decoration:underline;text-underline-offset:4px}
+.nav-voci{display:flex;align-items:center;gap:1.75rem}
+@media(min-width:820px){.nav-link{display:inline}}
+
+/* ---------- bottone ---------- */
+.cta{
+  display:inline-block;background:var(--ambra);color:#fff;
+  font-family:'Archivo',sans-serif;font-size:.95rem;font-weight:600;
+  padding:.7em 1.4em;border-radius:2px;text-decoration:none;
+  border:1px solid var(--ambra);white-space:nowrap;
+  transition:background .15s ease,border-color .15s ease;
+}
+.cta:hover,.cta:focus-visible{background:#9C6415;border-color:#9C6415}
+.cta.piccolo{font-size:.78rem;padding:.5em .85em}
+.cta.chiaro{background:transparent;color:var(--carta);border-color:var(--verde-chiaro)}
+.cta.chiaro:hover,.cta.chiaro:focus-visible{background:var(--verde-chiaro);color:var(--verde);border-color:var(--verde-chiaro)}
+:focus-visible{outline:2px solid var(--ambra);outline-offset:3px}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;color:var(--carta);
+  min-height:min(86vh,780px);display:flex;align-items:flex-end;
+  padding:7rem 0 4.5rem;overflow:hidden;
+  background:var(--verde);
+}
+.hero-sfondo{
+  position:absolute;inset:0;z-index:0;
+  background-image:
+    linear-gradient(to right, rgba(24,32,18,.82) 0%, rgba(24,32,18,.5) 35%, rgba(24,32,18,.08) 60%, rgba(24,32,18,0) 100%),
+    linear-gradient(to top, rgba(24,32,18,.75) 0%, rgba(24,32,18,0) 40%),
+    url('img/hero-montefeltro.webp');
+  background-size:cover;background-position:center right;
+}
+@media(max-width:760px){
+  /* su schermo stretto il camminatore sta a destra: si sposta l'inquadratura
+     e si scurisce di più, altrimenti il titolo cade sopra il paesaggio chiaro */
+  .hero-sfondo{
+    background-position:center bottom;
+    background-image:
+      linear-gradient(to bottom, rgba(24,32,18,.9) 0%, rgba(24,32,18,.72) 45%, rgba(24,32,18,.15) 75%, rgba(24,32,18,0) 100%),
+      url('img/hero-montefeltro-verticale.webp');
+  }
+  /* il camminatore sta in basso: il testo va in alto, sul cielo */
+  .hero{align-items:flex-start;padding-top:5.5rem;min-height:92vh}
+}
+.hero .hero-credito{max-width:none;line-height:1.2;position:absolute;right:max(16px,env(safe-area-inset-right,0px));bottom:.6rem;z-index:1;
+  font-size:.7rem;color:rgba(0,0,0,.55);margin:0;text-shadow:none}
+.hero .wrap{position:relative;z-index:1;width:100%}
+.hero h1{
+  font-size:clamp(2.6rem,5.6vw,4.6rem);line-height:1.02;max-width:none;text-shadow:0 2px 18px rgba(20,26,14,.55);
+  text-wrap:balance;
+}
+.hero h1 .il{font-style:italic;color:var(--verde-chiaro);letter-spacing:0}
+.hero p{max-width:36rem;margin-top:1.8rem;font-size:clamp(1.05rem,2vw,1.25rem);color:#E2DED2;line-height:1.55}
+.intro-tappe{margin:1.2rem 0 2.5rem;max-width:none}
+.intro-tappe p+p{margin-top:.9rem}
+@media(min-width:1200px){.hero p{max-width:none;white-space:nowrap;font-size:1.12rem;text-shadow:0 1px 8px rgba(20,26,14,.9)}}
+.hero .azioni{margin-top:2.4rem;display:flex;flex-wrap:wrap;gap:.9rem;align-items:center}
+
+
+/* ---------- sezioni ---------- */
+section{padding:5.5rem 0}
+.chiara{background:var(--carta)}
+.crema{background:var(--carta-scura)}
+.scura{background:var(--verde);color:var(--carta)}
+h2{font-size:clamp(2rem,4.2vw,3.1rem);max-width:20ch;margin-bottom:1.6rem}
+.scura h2{color:var(--carta)}
+h3{font-size:1.35rem;margin-bottom:.5rem}
+.testo-grande{font-size:1.2rem;line-height:1.65}
+.pietra{color:var(--pietra)}
+.scura .pietra{color:#B9C2AC}
+
+/* ---------- il pooling ---------- */
+.pooling{display:grid;gap:2.5rem;align-items:start}
+@media(min-width:860px){.pooling{grid-template-columns:1fr 1fr;gap:4rem}}
+.spiegazione{border-left:2px solid var(--ambra);padding-left:1.5rem}
+.spiegazione h3{font-family:'Archivo',sans-serif;font-size:1rem;font-weight:600;margin-bottom:.35rem}
+.spiegazione div+div{margin-top:1.8rem}
+.spiegazione p{color:var(--pietra);font-size:.98rem}
+
+/* ---------- tappe ---------- */
+.tappe{border-top:1px solid rgba(38,34,28,.14)}
+.tappa{border-bottom:1px solid rgba(38,34,28,.14)}
+.tappa summary{
+  display:grid;grid-template-columns:auto 1fr auto;gap:0 1.4rem;align-items:center;
+  padding:1.9rem 0;cursor:pointer;list-style:none;
+  transition:background .15s ease;
+}
+.tappa summary::-webkit-details-marker{display:none}
+.tappa summary:hover,.tappa summary:focus-visible{background:rgba(183,121,31,.06)}
+.giorno{
+  font-family:'Newsreader',serif;font-size:2.4rem;color:var(--ambra);
+  line-height:.9;width:2.2ch;
+}
+.tappa-corpo{display:grid;gap:.4rem;min-width:0}
+@media(min-width:760px){
+  .tappa-corpo{grid-template-columns:1fr auto;align-items:baseline;gap:1.5rem}
+}
+.tappa h3{font-size:1.6rem;margin:0}
+.tappa h3 .segnavia{height:1.1em;width:auto;vertical-align:-.18em;margin:0 .4em}
+@media(max-width:640px){.tappa h3{font-size:1.22rem;white-space:nowrap}.tappa h3 .segnavia{height:.9em;margin:0 .3em;vertical-align:-.12em}}
+.dati{display:flex;gap:1.4rem;font-size:.85rem;color:var(--pietra);white-space:nowrap}
+.dati-ritorno{gap:.3rem;flex-wrap:wrap;row-gap:.3rem}
+@media(max-width:640px){.dati-ritorno{white-space:normal;padding-right:.5rem}}
+.dati b{font-weight:600;color:var(--inchiostro)}
+.freccia{font-size:1.4rem;color:var(--ambra);transition:transform .2s ease;line-height:1}
+.tappa[open] .freccia{transform:rotate(180deg)}
+.tappa-dettaglio{padding:0 2rem 2rem 3.6rem}
+@media(max-width:640px){.tappa-dettaglio{padding-left:1.2rem;padding-right:0}}
+.tappa-riga{display:grid;gap:2rem;margin-bottom:1rem}
+.tappa-riga.tappa-riga-testo{margin-bottom:2rem}
+@media(min-width:860px){.tappa-riga{grid-template-columns:1fr 1fr}}
+@media(min-width:860px){.tappa-riga-testo{align-items:center}}
+.tappa-testo{color:var(--inchiostro);font-size:.98rem;line-height:1.65}
+.tappa-foto{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.tappa-mappa{width:100%;height:auto;display:block;border:1px solid rgba(38,34,28,.12)}
+.tappa-mappa-link{display:block;cursor:zoom-in}
+.tappa-mappa-link:focus-visible{outline:2px solid var(--ambra);outline-offset:3px}
+.mappa-dialog{border:0;padding:0;margin:auto;inset:0;position:fixed;background:transparent;max-width:96vw;max-height:94vh;overflow:visible}
+.mappa-dialog::backdrop{background:rgba(20,24,16,.88)}
+.mappa-dialog img{display:block;max-width:96vw;max-height:88vh;width:auto;height:auto;border-radius:4px}
+.mappa-dialog button{position:absolute;top:-.9rem;right:-.9rem;width:2.4rem;height:2.4rem;border-radius:50%;border:0;background:var(--carta);color:var(--inchiostro);font:600 1.4rem/1 Archivo,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.35)}
+.mappa-dialog button:focus-visible{outline:2px solid var(--ambra);outline-offset:2px}
+@media(max-width:600px){.mappa-dialog button{top:.4rem;right:.4rem}}
+.tappa-credito{font-size:.72rem;color:var(--pietra);margin:.4rem 0 2rem}
+.tappa-profilo{width:100%;height:auto;display:block}
+@media(min-width:860px){.tappa-profilo{height:100%}}
+.tappa-video-placeholder{
+  width:100%;aspect-ratio:4/3;display:grid;place-items:center;
+  background:var(--carta-scura);color:var(--pietra);
+  font-size:.85rem;text-align:center;padding:1rem;
+  border:1px solid rgba(38,34,28,.12);
+}
+
+/* ---------- come si parte ---------- */
+.passi{counter-reset:p;display:grid;gap:2rem;margin-top:2rem}
+@media(min-width:800px){.passi{grid-template-columns:repeat(3,1fr);gap:2.5rem}}
+.passo{counter-increment:p;padding-top:1rem;border-top:2px solid var(--ambra)}
+.passo::before{
+  content:counter(p);font-family:'Newsreader',serif;font-size:1.3rem;
+  color:var(--ambra);display:block;margin-bottom:.4rem;
+}
+.passo h3{font-size:1.15rem;font-family:'Archivo',sans-serif;font-weight:600;margin-bottom:.4rem}
+.passo p{font-size:.95rem;color:var(--pietra)}
+.passo p+p{margin-top:.5rem}
+.passo a{color:var(--ambra);font-weight:600}
+.installa{margin-top:.6rem;font-size:.95rem;color:var(--pietra)}
+.installa summary{cursor:pointer;color:var(--inchiostro);font-weight:600}
+.installa summary:focus-visible{outline:2px solid var(--ambra);outline-offset:2px}
+.installa p{margin-top:.5rem}
+
+.cta-fine{margin-top:2.5rem}
+
+/* ---------- piè di pagina ---------- */
+.piede{background:#242F1B;color:#B9C2AC;font-size:.82rem;line-height:1.6;padding:2.2rem 0}
+.piede p+p{margin-top:.4rem}
+.piede a{color:var(--carta)}
+.piede .titolare{color:var(--carta)}
+
+/* ---------- storia ---------- */
+.storia{display:grid;gap:2rem;align-items:center}
+@media(min-width:860px){.storia{grid-template-columns:1.1fr .9fr;gap:4rem}}
+.placeholder-foto{
+  background:var(--verde-medio);color:var(--verde-chiaro);
+  aspect-ratio:4/3;display:grid;place-items:center;
+  font-size:.85rem;text-align:center;padding:1rem;
+}
+.chiara .placeholder-foto,.crema .placeholder-foto{background:var(--carta-scura);color:var(--pietra);border:1px solid rgba(38,34,28,.12)}
+.credenziale-img{width:100%;max-width:320px;height:auto;display:block;margin:0 auto}
+
+.nota{
+  background:#FFF4D6;border:1px solid #E5C97B;color:#6B5518;
+  font-size:.82rem;padding:.6rem .9rem;margin-top:1.2rem;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="marchio" href="#top">Cammino <em>del Montefeltro</em></a>
+    <div class="nav-voci">
+      <a class="nav-link" href="#tappe">Le tappe</a>
+      <a class="nav-link" href="#partire">Come si parte</a>
+      <a class="nav-link" href="#credenziale">La Credenziale</a>
+      <a class="nav-link" href="#pooling">Condividere il Cammino</a>
+      <a class="nav-link" href="#contatti">Contatti</a>
+      <a class="cta piccolo" href="https://synvium.flutterflow.app">Unisciti al Cammino</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-sfondo" aria-hidden="true"></div>
+  <div class="wrap">
+    <h1><span class="il">Il</span> Cammino del Montefeltro</h1>
+    <p>Cinque tappe a piedi dal mare di Pesaro al Monte Carpegna, sulle tracce
+       delle diecimila opere d'arte salvate da Pasquale Rotondi.</p>
+
+  </div>
+  <p class="hero-credito">Illustrazione generata con IA</p>
+</header>
+
+<section class="chiara" id="tappe">
+  <div class="wrap">
+    <h2>Le Tappe del Cammino</h2>
+    <div class="prosa intro-tappe">
+      <p>Il Montefeltro è pieno di sentieri, mulattiere e strade bianche. Durante la
+         Seconda Guerra Mondiale, Pasquale Rotondi nascose diecimila opere d'arte tra
+         queste colline, per sottrarle alle razzie naziste attraverso l'eroica
+         Operazione Salvataggio.</p>
+      <p>Ripercorri la Linea Gotica, cammina sulle sue orme dal mare di Pesaro alle
+         pendici del Monte Carpegna, ritrova le opere e portale al sicuro
+         attraversando tutto il Montefeltro — una terra di storia, cultura, natura
+         e… buon cibo.</p>
+      <p>Sulle tracce dell'Operazione
+       Salvataggio, recupera un'opera d'arte in ognuna delle 6 tappe del Cammino,
+       custodiscile nella tua credenziale, e portale al sicuro.
+       <a href="https://synvium.flutterflow.app">Unisciti al Cammino</a> per
+       ottenere le tracce GPX e informazioni pratiche sui luoghi che incontrerai.</p>
+    </div>
+
+    <div class="tappe">
+      <details class="tappa">
+        <summary>
+          <div class="giorno">1</div>
+          <div class="tappa-corpo">
+            <div><h3>Pesaro <img class="segnavia" src="img/segnavia.webp" alt="verso" width="300" height="143"> Gradara</h3></div>
+            <div class="dati"><span><b>21,5 km</b></span><span><b>590 m</b> <svg class="dislivello" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="var(--pietra)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M10 6h8v8"/></svg></span><span><b>490 m</b> <svg class="dislivello" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="var(--pietra)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6 18 18M18 10v8h-8"/></svg></span></div>
+          </div>
+          <span class="freccia" aria-hidden="true">⌄</span>
+        </summary>
+        <div class="tappa-dettaglio">
+        <div class="tappa-riga tappa-riga-testo">
+          <p class="tappa-testo">A Pesaro, visita il centro storico per recuperare la tua prima opera d'arte da portare a Carpegna. Poi dirigiti verso il monte San Bartolo e percorri il bellissimo sentiero a picco sul mare, nel parco naturale che dà il nome alla collina, tra ginestre in fiore, vigneti e paesi medievali citati anche nella Divina Commedia. Si risale la dorsale passando da Santa Marina Alta, Monte Trebbio, Fiorenzuola di Focara, Casteldimezzo e La Montagnola, con brevi discese verso le insenature della costa; per i più volenterosi, la discesa al mare da Fiorenzuola di Focara ripagherà con una splendida spiaggia selvaggia in cui rinfrescarsi, poi, oltre Casteldimezzo, si lascia il mare e si scende verso l'entroterra, accanto all'area archeologica di Colombarone sull'antica via Flaminia, fino al castello di Gradara.</p>
+          <video class="tappa-foto" controls preload="none" poster="img/tappe/pesaro-gradara-poster.webp" aria-label="Video: tappa 1, Pesaro-Gradara">
+            <source src="video/tappe/pesaro-gradara.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="tappa-riga">
+          <a class="tappa-mappa-link" href="img/tappe/pesaro-gradara-mappa-grande.webp" target="_blank" rel="noopener" title="Apri la mappa grande"><img class="tappa-mappa" src="img/tappe/pesaro-gradara-mappa.webp" alt="Mappa del percorso a piedi da Pesaro a Gradara lungo il Monte San Bartolo, Fiorenzuola di Focara e Casteldimezzo, con marcatori di distanza ogni 5 km"></a>
+          <svg class="tappa-profilo" viewBox="0 0 640 270" preserveAspectRatio="none" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-label="Profilo altimetrico da Pesaro a Gradara: 0-21,5 km, quota da 0 a circa 200 m, con Santa Marina Alta, Monte Trebbio, Casteldimezzo e Colombarone">
+            <rect x="6" y="6" width="628" height="258" rx="4" stroke="var(--ambra)" stroke-width="2"/>
+            <rect x="14" y="14" width="612" height="242" rx="2" stroke="var(--ambra)" stroke-width="1"/>
+            <circle cx="18" cy="18" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <circle cx="622" cy="18" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <circle cx="18" cy="252" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <circle cx="622" cy="252" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <line x1="34" y1="248.0" x2="622" y2="248.0" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".3"/>
+            <line x1="34" y1="193.5" x2="622" y2="193.5" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".18"/>
+            <line x1="34" y1="139.0" x2="622" y2="139.0" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".18"/>
+            <line x1="34" y1="84.5" x2="622" y2="84.5" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".18"/>
+            <line x1="34" y1="30.0" x2="622" y2="30.0" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".18"/>
+            <text x="30" y="251" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">0 m</text>
+            <text x="30" y="196.5" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">50</text>
+            <text x="30" y="142.0" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">100</text>
+            <text x="30" y="87.5" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">150</text>
+            <text x="30" y="33.0" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">200 m</text>
+            <path d="M 34.0 233.9 L 35.4 233.4 L 38.6 232.7 L 39.9 232.6 L 40.9 232.9 L 42.2 233.6 L 43.4 234.9 L 45.2 235.4 L 46.8 236.4 L 48.5 236.6 L 49.9 237.1 L 51.8 237.5 L 52.9 238.5 L 53.9 238.7 L 54.9 239.2 L 56.1 239.1 L 58.4 239.6 L 63.2 240.1 L 64.3 241.2 L 65.5 241.2 L 66.9 241.2 L 68.4 241.1 L 70.4 241.6 L 71.8 242.0 L 73.2 242.8 L 75.5 244.4 L 77.2 245.7 L 78.1 245.9 L 81.0 245.8 L 82.0 245.5 L 83.6 243.3 L 84.7 242.4 L 85.6 242.3 L 87.1 241.9 L 88.8 241.4 L 91.1 240.2 L 93.7 239.3 L 95.5 238.0 L 97.0 233.2 L 98.7 228.3 L 103.0 222.8 L 105.0 210.9 L 106.7 202.0 L 108.2 195.8 L 110.2 189.5 L 113.4 183.8 L 115.5 174.5 L 116.8 170.9 L 118.0 166.0 L 120.4 160.9 L 122.5 155.0 L 123.5 149.0 L 125.1 143.6 L 126.7 134.0 L 127.8 129.0 L 129.7 124.4 L 132.3 120.6 L 133.7 117.3 L 134.9 120.0 L 136.4 123.6 L 138.1 127.1 L 139.4 130.0 L 141.2 131.0 L 143.6 130.8 L 146.1 129.4 L 148.8 125.5 L 149.9 124.8 L 151.3 124.5 L 155.1 125.1 L 156.3 125.1 L 157.5 124.8 L 159.3 123.0 L 161.4 116.9 L 162.6 114.3 L 164.2 110.2 L 167.5 110.3 L 168.7 111.0 L 170.3 111.9 L 171.3 112.7 L 172.9 113.3 L 174.4 115.5 L 176.6 122.1 L 178.3 130.7 L 179.5 135.3 L 180.7 136.6 L 181.9 136.1 L 183.0 134.4 L 184.3 134.3 L 185.4 134.3 L 187.3 134.6 L 189.4 135.7 L 190.3 136.1 L 192.0 135.5 L 193.5 133.6 L 195.4 131.5 L 196.5 128.8 L 197.5 124.4 L 198.9 112.6 L 201.5 106.7 L 202.8 90.8 L 205.8 86.1 L 209.4 77.1 L 210.9 70.6 L 213.2 66.2 L 214.7 65.0 L 215.9 69.2 L 217.4 71.9 L 218.5 77.2 L 219.4 81.4 L 222.1 87.4 L 224.2 88.5 L 226.6 88.6 L 228.5 88.1 L 230.6 86.3 L 232.5 84.8 L 233.8 84.2 L 235.6 87.2 L 237.5 88.8 L 239.2 90.5 L 240.4 96.0 L 241.6 98.9 L 243.6 105.1 L 244.7 110.5 L 245.8 111.2 L 248.3 111.4 L 251.0 112.7 L 252.4 115.8 L 254.1 116.9 L 255.0 119.3 L 256.1 126.6 L 258.3 135.8 L 259.6 143.8 L 260.5 144.5 L 262.1 143.8 L 263.2 142.4 L 265.9 138.9 L 267.4 133.4 L 268.9 128.6 L 270.5 124.3 L 272.3 123.5 L 273.5 122.8 L 274.4 123.1 L 276.4 123.9 L 280.4 125.4 L 281.7 129.2 L 283.6 130.2 L 284.8 128.8 L 286.6 127.7 L 287.8 126.6 L 289.4 124.8 L 291.6 125.9 L 292.8 128.2 L 293.8 130.1 L 295.0 132.5 L 296.4 135.1 L 297.6 138.0 L 299.3 144.7 L 300.4 145.7 L 301.6 146.4 L 303.1 146.4 L 308.5 146.2 L 310.6 146.9 L 311.8 147.4 L 312.9 146.2 L 314.2 144.6 L 315.5 144.0 L 317.0 143.7 L 319.1 145.9 L 320.8 150.0 L 322.0 154.1 L 322.9 155.1 L 324.1 154.0 L 325.0 151.0 L 326.0 146.7 L 327.8 140.0 L 328.9 132.2 L 330.0 123.2 L 331.4 118.2 L 332.7 104.9 L 334.1 99.7 L 335.0 89.0 L 336.3 84.3 L 337.3 84.8 L 338.8 90.1 L 339.8 95.4 L 340.8 98.2 L 342.7 101.7 L 345.4 106.6 L 347.3 108.5 L 348.4 110.3 L 349.9 112.5 L 352.3 109.1 L 354.1 105.1 L 355.2 99.8 L 357.2 94.9 L 358.4 91.4 L 359.7 87.7 L 361.3 90.0 L 362.8 90.8 L 363.8 91.1 L 365.4 80.5 L 366.9 76.4 L 367.9 69.8 L 369.3 69.3 L 370.8 69.4 L 371.8 69.5 L 373.0 68.7 L 374.8 69.4 L 378.4 72.8 L 379.5 74.6 L 381.0 77.6 L 383.0 87.3 L 384.3 92.1 L 385.4 97.0 L 386.8 102.9 L 388.5 104.0 L 389.5 104.4 L 390.9 102.8 L 392.2 101.2 L 393.6 93.7 L 395.0 83.1 L 396.1 80.0 L 397.4 73.8 L 398.4 73.4 L 399.5 76.0 L 400.7 77.2 L 401.7 77.4 L 403.2 77.7 L 404.4 78.7 L 405.6 81.4 L 406.9 82.5 L 408.1 84.6 L 409.2 88.9 L 410.9 93.3 L 413.0 102.3 L 415.4 104.0 L 417.5 102.3 L 418.7 93.9 L 421.4 85.2 L 422.4 77.6 L 423.5 73.2 L 424.7 69.1 L 427.7 60.4 L 429.3 57.2 L 430.5 54.6 L 431.8 53.1 L 434.4 51.6 L 437.4 45.1 L 438.8 41.7 L 440.6 38.5 L 441.6 36.9 L 442.9 39.2 L 444.7 45.2 L 446.2 51.1 L 447.1 58.0 L 448.1 61.7 L 449.1 65.6 L 450.8 70.6 L 452.1 68.3 L 453.6 67.0 L 454.7 65.3 L 455.7 70.4 L 457.0 72.5 L 458.1 72.7 L 460.1 72.4 L 461.7 72.2 L 463.4 71.7 L 466.5 71.2 L 467.4 70.3 L 468.5 64.8 L 470.9 60.4 L 472.2 58.2 L 473.5 64.5 L 474.5 70.8 L 475.7 79.1 L 477.0 84.2 L 478.1 90.4 L 479.1 91.6 L 480.4 94.7 L 481.7 98.6 L 482.6 104.5 L 483.8 111.3 L 485.1 118.4 L 486.3 126.4 L 487.7 133.7 L 488.6 139.0 L 490.4 144.4 L 491.6 147.7 L 492.9 150.8 L 494.0 153.8 L 495.2 155.8 L 496.5 155.0 L 497.5 154.3 L 498.6 151.8 L 499.8 151.0 L 501.5 147.5 L 503.1 142.0 L 504.3 136.7 L 508.4 137.6 L 509.4 141.5 L 512.0 150.1 L 513.3 159.7 L 514.9 162.4 L 516.8 165.2 L 519.8 167.7 L 521.8 170.0 L 523.2 173.1 L 524.6 173.4 L 527.1 172.5 L 528.1 170.7 L 530.3 172.6 L 531.3 174.4 L 533.3 174.3 L 534.5 172.8 L 536.1 172.4 L 537.5 173.3 L 538.9 178.3 L 540.6 181.5 L 542.0 187.8 L 543.5 191.6 L 544.7 194.9 L 545.9 197.7 L 547.1 203.0 L 548.1 204.9 L 549.2 210.3 L 550.2 211.8 L 551.4 214.7 L 552.4 216.7 L 556.1 219.5 L 558.1 220.5 L 559.4 222.7 L 560.5 223.2 L 561.4 223.8 L 562.4 225.6 L 563.5 226.0 L 567.2 226.4 L 571.0 226.8 L 572.0 226.9 L 574.3 227.0 L 576.5 226.8 L 577.8 225.6 L 579.8 222.9 L 581.5 222.0 L 583.0 221.4 L 584.4 222.4 L 586.0 224.1 L 587.6 224.6 L 590.1 225.1 L 591.6 224.9 L 593.8 224.6 L 595.1 224.0 L 598.5 222.3 L 600.3 215.1 L 602.0 207.9 L 604.0 199.8 L 606.1 191.3 L 607.8 181.9 L 610.3 171.1 L 612.1 159.5 L 613.9 148.1 L 615.7 138.0 L 616.8 125.3 L 618.0 123.5 L 618.9 122.1 L 620.5 122.6 L 622.0 123.6 L 622.0 248.0 L 34.0 248.0 Z" fill="var(--carta-scura)"/>
+            <path d="M 34.0 233.9 L 35.4 233.4 L 38.6 232.7 L 39.9 232.6 L 40.9 232.9 L 42.2 233.6 L 43.4 234.9 L 45.2 235.4 L 46.8 236.4 L 48.5 236.6 L 49.9 237.1 L 51.8 237.5 L 52.9 238.5 L 53.9 238.7 L 54.9 239.2 L 56.1 239.1 L 58.4 239.6 L 63.2 240.1 L 64.3 241.2 L 65.5 241.2 L 66.9 241.2 L 68.4 241.1 L 70.4 241.6 L 71.8 242.0 L 73.2 242.8 L 75.5 244.4 L 77.2 245.7 L 78.1 245.9 L 81.0 245.8 L 82.0 245.5 L 83.6 243.3 L 84.7 242.4 L 85.6 242.3 L 87.1 241.9 L 88.8 241.4 L 91.1 240.2 L 93.7 239.3 L 95.5 238.0 L 97.0 233.2 L 98.7 228.3 L 103.0 222.8 L 105.0 210.9 L 106.7 202.0 L 108.2 195.8 L 110.2 189.5 L 113.4 183.8 L 115.5 174.5 L 116.8 170.9 L 118.0 166.0 L 120.4 160.9 L 122.5 155.0 L 123.5 149.0 L 125.1 143.6 L 126.7 134.0 L 127.8 129.0 L 129.7 124.4 L 132.3 120.6 L 133.7 117.3 L 134.9 120.0 L 136.4 123.6 L 138.1 127.1 L 139.4 130.0 L 141.2 131.0 L 143.6 130.8 L 146.1 129.4 L 148.8 125.5 L 149.9 124.8 L 151.3 124.5 L 155.1 125.1 L 156.3 125.1 L 157.5 124.8 L 159.3 123.0 L 161.4 116.9 L 162.6 114.3 L 164.2 110.2 L 167.5 110.3 L 168.7 111.0 L 170.3 111.9 L 171.3 112.7 L 172.9 113.3 L 174.4 115.5 L 176.6 122.1 L 178.3 130.7 L 179.5 135.3 L 180.7 136.6 L 181.9 136.1 L 183.0 134.4 L 184.3 134.3 L 185.4 134.3 L 187.3 134.6 L 189.4 135.7 L 190.3 136.1 L 192.0 135.5 L 193.5 133.6 L 195.4 131.5 L 196.5 128.8 L 197.5 124.4 L 198.9 112.6 L 201.5 106.7 L 202.8 90.8 L 205.8 86.1 L 209.4 77.1 L 210.9 70.6 L 213.2 66.2 L 214.7 65.0 L 215.9 69.2 L 217.4 71.9 L 218.5 77.2 L 219.4 81.4 L 222.1 87.4 L 224.2 88.5 L 226.6 88.6 L 228.5 88.1 L 230.6 86.3 L 232.5 84.8 L 233.8 84.2 L 235.6 87.2 L 237.5 88.8 L 239.2 90.5 L 240.4 96.0 L 241.6 98.9 L 243.6 105.1 L 244.7 110.5 L 245.8 111.2 L 248.3 111.4 L 251.0 112.7 L 252.4 115.8 L 254.1 116.9 L 255.0 119.3 L 256.1 126.6 L 258.3 135.8 L 259.6 143.8 L 260.5 144.5 L 262.1 143.8 L 263.2 142.4 L 265.9 138.9 L 267.4 133.4 L 268.9 128.6 L 270.5 124.3 L 272.3 123.5 L 273.5 122.8 L 274.4 123.1 L 276.4 123.9 L 280.4 125.4 L 281.7 129.2 L 283.6 130.2 L 284.8 128.8 L 286.6 127.7 L 287.8 126.6 L 289.4 124.8 L 291.6 125.9 L 292.8 128.2 L 293.8 130.1 L 295.0 132.5 L 296.4 135.1 L 297.6 138.0 L 299.3 144.7 L 300.4 145.7 L 301.6 146.4 L 303.1 146.4 L 308.5 146.2 L 310.6 146.9 L 311.8 147.4 L 312.9 146.2 L 314.2 144.6 L 315.5 144.0 L 317.0 143.7 L 319.1 145.9 L 320.8 150.0 L 322.0 154.1 L 322.9 155.1 L 324.1 154.0 L 325.0 151.0 L 326.0 146.7 L 327.8 140.0 L 328.9 132.2 L 330.0 123.2 L 331.4 118.2 L 332.7 104.9 L 334.1 99.7 L 335.0 89.0 L 336.3 84.3 L 337.3 84.8 L 338.8 90.1 L 339.8 95.4 L 340.8 98.2 L 342.7 101.7 L 345.4 106.6 L 347.3 108.5 L 348.4 110.3 L 349.9 112.5 L 352.3 109.1 L 354.1 105.1 L 355.2 99.8 L 357.2 94.9 L 358.4 91.4 L 359.7 87.7 L 361.3 90.0 L 362.8 90.8 L 363.8 91.1 L 365.4 80.5 L 366.9 76.4 L 367.9 69.8 L 369.3 69.3 L 370.8 69.4 L 371.8 69.5 L 373.0 68.7 L 374.8 69.4 L 378.4 72.8 L 379.5 74.6 L 381.0 77.6 L 383.0 87.3 L 384.3 92.1 L 385.4 97.0 L 386.8 102.9 L 388.5 104.0 L 389.5 104.4 L 390.9 102.8 L 392.2 101.2 L 393.6 93.7 L 395.0 83.1 L 396.1 80.0 L 397.4 73.8 L 398.4 73.4 L 399.5 76.0 L 400.7 77.2 L 401.7 77.4 L 403.2 77.7 L 404.4 78.7 L 405.6 81.4 L 406.9 82.5 L 408.1 84.6 L 409.2 88.9 L 410.9 93.3 L 413.0 102.3 L 415.4 104.0 L 417.5 102.3 L 418.7 93.9 L 421.4 85.2 L 422.4 77.6 L 423.5 73.2 L 424.7 69.1 L 427.7 60.4 L 429.3 57.2 L 430.5 54.6 L 431.8 53.1 L 434.4 51.6 L 437.4 45.1 L 438.8 41.7 L 440.6 38.5 L 441.6 36.9 L 442.9 39.2 L 444.7 45.2 L 446.2 51.1 L 447.1 58.0 L 448.1 61.7 L 449.1 65.6 L 450.8 70.6 L 452.1 68.3 L 453.6 67.0 L 454.7 65.3 L 455.7 70.4 L 457.0 72.5 L 458.1 72.7 L 460.1 72.4 L 461.7 72.2 L 463.4 71.7 L 466.5 71.2 L 467.4 70.3 L 468.5 64.8 L 470.9 60.4 L 472.2 58.2 L 473.5 64.5 L 474.5 70.8 L 475.7 79.1 L 477.0 84.2 L 478.1 90.4 L 479.1 91.6 L 480.4 94.7 L 481.7 98.6 L 482.6 104.5 L 483.8 111.3 L 485.1 118.4 L 486.3 126.4 L 487.7 133.7 L 488.6 139.0 L 490.4 144.4 L 491.6 147.7 L 492.9 150.8 L 494.0 153.8 L 495.2 155.8 L 496.5 155.0 L 497.5 154.3 L 498.6 151.8 L 499.8 151.0 L 501.5 147.5 L 503.1 142.0 L 504.3 136.7 L 508.4 137.6 L 509.4 141.5 L 512.0 150.1 L 513.3 159.7 L 514.9 162.4 L 516.8 165.2 L 519.8 167.7 L 521.8 170.0 L 523.2 173.1 L 524.6 173.4 L 527.1 172.5 L 528.1 170.7 L 530.3 172.6 L 531.3 174.4 L 533.3 174.3 L 534.5 172.8 L 536.1 172.4 L 537.5 173.3 L 538.9 178.3 L 540.6 181.5 L 542.0 187.8 L 543.5 191.6 L 544.7 194.9 L 545.9 197.7 L 547.1 203.0 L 548.1 204.9 L 549.2 210.3 L 550.2 211.8 L 551.4 214.7 L 552.4 216.7 L 556.1 219.5 L 558.1 220.5 L 559.4 222.7 L 560.5 223.2 L 561.4 223.8 L 562.4 225.6 L 563.5 226.0 L 567.2 226.4 L 571.0 226.8 L 572.0 226.9 L 574.3 227.0 L 576.5 226.8 L 577.8 225.6 L 579.8 222.9 L 581.5 222.0 L 583.0 221.4 L 584.4 222.4 L 586.0 224.1 L 587.6 224.6 L 590.1 225.1 L 591.6 224.9 L 593.8 224.6 L 595.1 224.0 L 598.5 222.3 L 600.3 215.1 L 602.0 207.9 L 604.0 199.8 L 606.1 191.3 L 607.8 181.9 L 610.3 171.1 L 612.1 159.5 L 613.9 148.1 L 615.7 138.0 L 616.8 125.3 L 618.0 123.5 L 618.9 122.1 L 620.5 122.6 L 622.0 123.6" stroke="var(--ambra)" stroke-width="2.5"/>
+            <line x1="34" y1="248" x2="622" y2="248" stroke="var(--pietra)" stroke-width="1"/>
+            <line x1="170.8" y1="248" x2="170.8" y2="252" stroke="var(--pietra)" stroke-width="1"/>
+            <line x1="307.5" y1="248" x2="307.5" y2="252" stroke="var(--pietra)" stroke-width="1"/>
+            <line x1="444.3" y1="248" x2="444.3" y2="252" stroke="var(--pietra)" stroke-width="1"/>
+            <text x="34" y="264" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">Pesaro · 0 km</text>
+            <text x="170.8" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">5</text>
+            <text x="307.5" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">10</text>
+            <text x="444.3" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">15</text>
+            <text x="622" y="264" text-anchor="end" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">Gradara · 21,5 km</text>
+            <path d="M224.7 77.1 h7 v4.5 h-7 z M224.7 77.1 l3.5-4 3.5 4 z" fill="var(--ambra)"/>
+            <text x="228.2" y="68.1" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Santa Marina Alta</text>
+            <path d="M365.0 65.5 l4 7 h-8 z" fill="var(--ambra)"/>
+            <text x="365.0" y="60.5" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Monte Trebbio</text>
+            <path d="M443.5 47.0 h7 v4.5 h-7 z M443.5 47.0 l3.5-4 3.5 4 z" fill="var(--ambra)"/>
+            <text x="447.0" y="38.0" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Casteldimezzo</text>
+            <path d="M555.6 211.7 h7 v4.5 h-7 z M555.6 211.7 l3.5-4 3.5 4 z" fill="var(--ambra)"/>
+            <text x="559.1" y="202.7" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Colombarone</text>
+          </svg>
+        </div>
+        <p class="tappa-credito">Mappa: © collaboratori di OpenStreetMap</p>
+        </div>
+      </details>
+      <details class="tappa">
+        <summary>
+          <div class="giorno">2</div>
+          <div class="tappa-corpo">
+            <div><h3>Gradara <img class="segnavia" src="img/segnavia.webp" alt="verso" width="300" height="143"> Mondaino</h3></div>
+            <div class="dati"><span><b>18 km</b></span><span><b>700 m</b> <svg class="dislivello" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="var(--pietra)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M10 6h8v8"/></svg></span><span><b>430 m</b> <svg class="dislivello" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="var(--pietra)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6 18 18M18 10v8h-8"/></svg></span></div>
+          </div>
+          <span class="freccia" aria-hidden="true">⌄</span>
+        </summary>
+        <div class="tappa-dettaglio">
+        <div class="tappa-riga tappa-riga-testo">
+          <p class="tappa-testo">Da Gradara si scende verso sud tra le colline fino a
+             Tavullia, il paese di Valentino Rossi, a metà strada. Poi un saliscendi
+             continuo tra campi e filari, lungo il confine tra Marche e Romagna, senza
+             un vero tratto di pianura e con i borghi che spuntano in cima alle
+             alture. Negli ultimi chilometri si entra a Montegridolfo, uno dei borghi
+             fortificati della zona, prima dell'ultima salita che porta dentro
+             Mondaino: la sua piazza semicircolare, che gli abitanti chiamano "Piazza
+             Padella", stretta intorno alla Rocca Malatestiana.</p>
+          <div class="tappa-video-placeholder">Video in arrivo</div>
+        </div>
+        <div class="tappa-riga">
+          <a class="tappa-mappa-link" href="img/tappe/gradara-mondaino-mappa-grande.webp" target="_blank" rel="noopener" title="Apri la mappa grande"><img class="tappa-mappa" src="img/tappe/gradara-mondaino-mappa.webp" alt="Mappa del percorso a piedi da Gradara a Mondaino attraverso Tavullia e Montegridolfo, con marcatori di distanza ogni 5 km"></a>
+          <svg class="tappa-profilo" viewBox="0 0 640 270" preserveAspectRatio="none" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-label="Profilo altimetrico da Gradara a Mondaino: 0-18 km, quota da 30 a circa 380 m, con Tavullia e il borgo di Montegridolfo">
+            <rect x="6" y="6" width="628" height="258" rx="4" stroke="var(--ambra)" stroke-width="2"/>
+            <rect x="14" y="14" width="612" height="242" rx="2" stroke="var(--ambra)" stroke-width="1"/>
+            <circle cx="18" cy="18" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <circle cx="622" cy="18" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <circle cx="18" cy="252" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <circle cx="622" cy="252" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <line x1="34" y1="248.0" x2="622" y2="248.0" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".3"/>
+            <line x1="34" y1="193.5" x2="622" y2="193.5" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".18"/>
+            <line x1="34" y1="139.0" x2="622" y2="139.0" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".18"/>
+            <line x1="34" y1="84.5" x2="622" y2="84.5" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".18"/>
+            <line x1="34" y1="30.0" x2="622" y2="30.0" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".18"/>
+            <text x="30" y="251" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">0 m</text>
+            <text x="30" y="196.5" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">100</text>
+            <text x="30" y="142.0" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">200</text>
+            <text x="30" y="87.5" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">300</text>
+            <text x="30" y="33.0" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">400 m</text>
+            <path d="M 34.0 192.6 L 35.1 192.6 L 36.8 192.6 L 38.3 198.9 L 44.8 202.0 L 46.6 209.5 L 47.7 211.8 L 48.6 213.1 L 49.8 214.4 L 50.9 215.7 L 52.3 218.2 L 53.6 219.3 L 54.9 222.1 L 55.8 223.6 L 59.6 225.2 L 60.9 226.8 L 62.3 228.6 L 66.7 230.5 L 68.0 232.1 L 70.7 232.4 L 71.8 232.8 L 73.0 233.0 L 77.6 233.0 L 79.7 233.0 L 80.8 232.7 L 82.4 232.4 L 85.6 232.1 L 89.8 231.7 L 90.9 231.1 L 93.3 230.6 L 98.6 229.9 L 100.0 229.2 L 106.3 228.5 L 107.6 227.9 L 109.1 227.3 L 111.3 226.4 L 112.3 225.8 L 114.2 225.2 L 116.8 224.6 L 117.8 224.0 L 119.3 223.4 L 121.5 223.0 L 123.2 222.0 L 125.6 221.4 L 127.0 221.0 L 128.3 220.5 L 130.5 220.1 L 131.7 219.7 L 132.9 219.2 L 134.5 218.6 L 136.4 218.0 L 138.3 217.1 L 139.4 216.0 L 142.6 214.8 L 143.6 213.6 L 145.0 211.6 L 146.2 207.9 L 151.3 203.0 L 152.8 197.1 L 154.7 192.1 L 157.0 186.4 L 166.1 175.1 L 167.1 169.9 L 169.8 163.5 L 170.8 161.2 L 171.8 160.7 L 172.8 159.7 L 173.9 159.6 L 176.7 159.7 L 177.8 160.4 L 179.5 163.1 L 180.5 164.6 L 183.0 166.3 L 184.1 169.4 L 186.5 173.3 L 188.1 179.1 L 190.5 181.2 L 191.5 183.9 L 194.0 188.8 L 195.5 192.1 L 200.8 199.0 L 203.0 201.9 L 204.8 207.3 L 209.0 208.6 L 210.6 209.8 L 212.9 210.2 L 216.2 209.7 L 218.1 208.1 L 219.3 207.3 L 220.2 206.5 L 221.5 206.0 L 222.6 205.6 L 224.6 205.4 L 227.8 205.6 L 229.2 207.3 L 230.6 208.5 L 232.1 209.8 L 233.9 211.1 L 238.4 213.0 L 239.7 213.9 L 243.3 210.2 L 246.2 207.0 L 249.2 203.8 L 252.2 201.2 L 253.5 194.9 L 255.8 192.4 L 258.6 186.9 L 259.5 184.8 L 261.1 181.1 L 262.3 179.7 L 264.3 176.2 L 266.4 174.7 L 268.5 172.2 L 269.4 171.5 L 270.5 171.0 L 271.8 169.9 L 273.8 168.7 L 276.3 168.1 L 277.9 166.9 L 279.3 166.7 L 280.3 166.9 L 281.5 167.3 L 283.1 168.7 L 284.3 170.2 L 285.3 170.9 L 286.8 174.7 L 289.9 176.7 L 291.9 179.2 L 294.1 183.7 L 295.2 186.8 L 296.2 189.6 L 298.7 194.1 L 300.9 196.4 L 301.8 199.6 L 305.4 203.6 L 306.5 206.5 L 308.1 207.9 L 310.1 208.6 L 311.6 209.4 L 312.8 210.2 L 314.6 210.8 L 316.4 211.3 L 318.6 211.8 L 320.5 212.3 L 322.4 212.8 L 323.9 213.3 L 326.6 213.8 L 329.1 214.3 L 331.8 214.8 L 333.1 215.3 L 334.8 215.7 L 337.3 216.2 L 339.1 216.7 L 341.3 217.2 L 342.8 217.7 L 344.6 218.1 L 346.5 218.3 L 349.1 218.4 L 350.3 218.2 L 351.7 216.9 L 353.5 215.8 L 355.2 213.7 L 356.1 209.7 L 359.7 205.2 L 365.8 199.7 L 368.6 194.2 L 374.0 189.8 L 375.0 185.2 L 376.5 184.0 L 378.0 182.3 L 379.0 181.6 L 381.5 181.4 L 382.5 181.4 L 383.5 181.3 L 385.4 182.8 L 388.7 183.9 L 389.8 185.4 L 391.7 187.2 L 392.6 188.6 L 394.1 190.0 L 395.3 192.2 L 397.7 195.1 L 398.7 197.4 L 400.0 198.4 L 401.5 200.4 L 402.4 201.8 L 403.7 203.1 L 404.6 203.8 L 406.5 206.2 L 407.4 207.8 L 409.0 209.8 L 412.4 212.8 L 413.9 214.4 L 416.1 215.9 L 417.4 216.6 L 420.0 216.8 L 422.0 215.5 L 423.2 214.9 L 424.9 213.0 L 427.8 212.2 L 429.5 211.3 L 430.4 210.4 L 431.9 211.7 L 434.4 212.8 L 436.2 215.2 L 437.4 216.2 L 439.1 216.0 L 442.7 215.7 L 444.9 214.6 L 447.6 210.6 L 450.3 207.7 L 452.9 204.3 L 455.5 201.5 L 458.0 199.4 L 460.5 198.1 L 462.4 198.6 L 464.6 200.0 L 467.1 201.6 L 470.4 203.4 L 472.8 205.0 L 475.1 206.2 L 476.5 206.7 L 478.1 206.6 L 479.4 205.8 L 480.4 205.2 L 481.4 204.7 L 483.3 203.5 L 484.7 202.9 L 486.5 202.0 L 488.0 201.6 L 490.3 200.7 L 491.5 199.6 L 492.8 198.9 L 493.8 197.9 L 494.9 196.6 L 497.4 194.5 L 498.6 191.9 L 501.4 188.8 L 503.2 185.8 L 505.0 182.9 L 506.3 180.7 L 508.1 177.6 L 509.4 173.9 L 512.0 172.0 L 514.8 170.2 L 515.9 167.0 L 517.8 164.9 L 518.8 163.7 L 520.3 162.6 L 521.5 160.3 L 523.9 158.5 L 525.5 155.8 L 527.1 153.5 L 528.5 151.0 L 531.0 149.7 L 532.6 148.6 L 533.7 145.9 L 535.1 144.7 L 537.3 143.5 L 538.3 142.2 L 539.7 139.0 L 541.0 138.0 L 542.0 136.9 L 543.0 133.4 L 546.3 127.1 L 550.3 115.1 L 556.7 110.7 L 558.4 103.9 L 559.3 102.7 L 560.2 101.9 L 561.2 101.0 L 562.2 99.9 L 563.7 98.8 L 564.8 98.2 L 565.8 97.6 L 566.8 97.1 L 568.5 95.4 L 569.6 94.5 L 570.6 93.0 L 571.6 90.6 L 574.4 88.2 L 577.4 84.9 L 581.3 75.3 L 586.8 71.2 L 588.7 67.2 L 590.3 64.2 L 591.7 61.2 L 593.1 59.9 L 595.5 58.6 L 597.1 57.5 L 598.1 54.7 L 602.7 53.5 L 604.4 50.1 L 606.1 48.8 L 608.0 47.5 L 609.1 45.6 L 610.5 42.7 L 614.5 41.6 L 617.6 39.5 L 619.1 39.5 L 620.2 39.5 L 621.3 39.5 L 622.0 39.5 L 622.0 248.0 L 34.0 248.0 Z" fill="var(--carta-scura)"/>
+            <path d="M 34.0 192.6 L 35.1 192.6 L 36.8 192.6 L 38.3 198.9 L 44.8 202.0 L 46.6 209.5 L 47.7 211.8 L 48.6 213.1 L 49.8 214.4 L 50.9 215.7 L 52.3 218.2 L 53.6 219.3 L 54.9 222.1 L 55.8 223.6 L 59.6 225.2 L 60.9 226.8 L 62.3 228.6 L 66.7 230.5 L 68.0 232.1 L 70.7 232.4 L 71.8 232.8 L 73.0 233.0 L 77.6 233.0 L 79.7 233.0 L 80.8 232.7 L 82.4 232.4 L 85.6 232.1 L 89.8 231.7 L 90.9 231.1 L 93.3 230.6 L 98.6 229.9 L 100.0 229.2 L 106.3 228.5 L 107.6 227.9 L 109.1 227.3 L 111.3 226.4 L 112.3 225.8 L 114.2 225.2 L 116.8 224.6 L 117.8 224.0 L 119.3 223.4 L 121.5 223.0 L 123.2 222.0 L 125.6 221.4 L 127.0 221.0 L 128.3 220.5 L 130.5 220.1 L 131.7 219.7 L 132.9 219.2 L 134.5 218.6 L 136.4 218.0 L 138.3 217.1 L 139.4 216.0 L 142.6 214.8 L 143.6 213.6 L 145.0 211.6 L 146.2 207.9 L 151.3 203.0 L 152.8 197.1 L 154.7 192.1 L 157.0 186.4 L 166.1 175.1 L 167.1 169.9 L 169.8 163.5 L 170.8 161.2 L 171.8 160.7 L 172.8 159.7 L 173.9 159.6 L 176.7 159.7 L 177.8 160.4 L 179.5 163.1 L 180.5 164.6 L 183.0 166.3 L 184.1 169.4 L 186.5 173.3 L 188.1 179.1 L 190.5 181.2 L 191.5 183.9 L 194.0 188.8 L 195.5 192.1 L 200.8 199.0 L 203.0 201.9 L 204.8 207.3 L 209.0 208.6 L 210.6 209.8 L 212.9 210.2 L 216.2 209.7 L 218.1 208.1 L 219.3 207.3 L 220.2 206.5 L 221.5 206.0 L 222.6 205.6 L 224.6 205.4 L 227.8 205.6 L 229.2 207.3 L 230.6 208.5 L 232.1 209.8 L 233.9 211.1 L 238.4 213.0 L 239.7 213.9 L 243.3 210.2 L 246.2 207.0 L 249.2 203.8 L 252.2 201.2 L 253.5 194.9 L 255.8 192.4 L 258.6 186.9 L 259.5 184.8 L 261.1 181.1 L 262.3 179.7 L 264.3 176.2 L 266.4 174.7 L 268.5 172.2 L 269.4 171.5 L 270.5 171.0 L 271.8 169.9 L 273.8 168.7 L 276.3 168.1 L 277.9 166.9 L 279.3 166.7 L 280.3 166.9 L 281.5 167.3 L 283.1 168.7 L 284.3 170.2 L 285.3 170.9 L 286.8 174.7 L 289.9 176.7 L 291.9 179.2 L 294.1 183.7 L 295.2 186.8 L 296.2 189.6 L 298.7 194.1 L 300.9 196.4 L 301.8 199.6 L 305.4 203.6 L 306.5 206.5 L 308.1 207.9 L 310.1 208.6 L 311.6 209.4 L 312.8 210.2 L 314.6 210.8 L 316.4 211.3 L 318.6 211.8 L 320.5 212.3 L 322.4 212.8 L 323.9 213.3 L 326.6 213.8 L 329.1 214.3 L 331.8 214.8 L 333.1 215.3 L 334.8 215.7 L 337.3 216.2 L 339.1 216.7 L 341.3 217.2 L 342.8 217.7 L 344.6 218.1 L 346.5 218.3 L 349.1 218.4 L 350.3 218.2 L 351.7 216.9 L 353.5 215.8 L 355.2 213.7 L 356.1 209.7 L 359.7 205.2 L 365.8 199.7 L 368.6 194.2 L 374.0 189.8 L 375.0 185.2 L 376.5 184.0 L 378.0 182.3 L 379.0 181.6 L 381.5 181.4 L 382.5 181.4 L 383.5 181.3 L 385.4 182.8 L 388.7 183.9 L 389.8 185.4 L 391.7 187.2 L 392.6 188.6 L 394.1 190.0 L 395.3 192.2 L 397.7 195.1 L 398.7 197.4 L 400.0 198.4 L 401.5 200.4 L 402.4 201.8 L 403.7 203.1 L 404.6 203.8 L 406.5 206.2 L 407.4 207.8 L 409.0 209.8 L 412.4 212.8 L 413.9 214.4 L 416.1 215.9 L 417.4 216.6 L 420.0 216.8 L 422.0 215.5 L 423.2 214.9 L 424.9 213.0 L 427.8 212.2 L 429.5 211.3 L 430.4 210.4 L 431.9 211.7 L 434.4 212.8 L 436.2 215.2 L 437.4 216.2 L 439.1 216.0 L 442.7 215.7 L 444.9 214.6 L 447.6 210.6 L 450.3 207.7 L 452.9 204.3 L 455.5 201.5 L 458.0 199.4 L 460.5 198.1 L 462.4 198.6 L 464.6 200.0 L 467.1 201.6 L 470.4 203.4 L 472.8 205.0 L 475.1 206.2 L 476.5 206.7 L 478.1 206.6 L 479.4 205.8 L 480.4 205.2 L 481.4 204.7 L 483.3 203.5 L 484.7 202.9 L 486.5 202.0 L 488.0 201.6 L 490.3 200.7 L 491.5 199.6 L 492.8 198.9 L 493.8 197.9 L 494.9 196.6 L 497.4 194.5 L 498.6 191.9 L 501.4 188.8 L 503.2 185.8 L 505.0 182.9 L 506.3 180.7 L 508.1 177.6 L 509.4 173.9 L 512.0 172.0 L 514.8 170.2 L 515.9 167.0 L 517.8 164.9 L 518.8 163.7 L 520.3 162.6 L 521.5 160.3 L 523.9 158.5 L 525.5 155.8 L 527.1 153.5 L 528.5 151.0 L 531.0 149.7 L 532.6 148.6 L 533.7 145.9 L 535.1 144.7 L 537.3 143.5 L 538.3 142.2 L 539.7 139.0 L 541.0 138.0 L 542.0 136.9 L 543.0 133.4 L 546.3 127.1 L 550.3 115.1 L 556.7 110.7 L 558.4 103.9 L 559.3 102.7 L 560.2 101.9 L 561.2 101.0 L 562.2 99.9 L 563.7 98.8 L 564.8 98.2 L 565.8 97.6 L 566.8 97.1 L 568.5 95.4 L 569.6 94.5 L 570.6 93.0 L 571.6 90.6 L 574.4 88.2 L 577.4 84.9 L 581.3 75.3 L 586.8 71.2 L 588.7 67.2 L 590.3 64.2 L 591.7 61.2 L 593.1 59.9 L 595.5 58.6 L 597.1 57.5 L 598.1 54.7 L 602.7 53.5 L 604.4 50.1 L 606.1 48.8 L 608.0 47.5 L 609.1 45.6 L 610.5 42.7 L 614.5 41.6 L 617.6 39.5 L 619.1 39.5 L 620.2 39.5 L 621.3 39.5 L 622.0 39.5" stroke="var(--ambra)" stroke-width="2.5"/>
+            <line x1="34" y1="248" x2="622" y2="248" stroke="var(--pietra)" stroke-width="1"/>
+            <line x1="198.1" y1="248" x2="198.1" y2="252" stroke="var(--pietra)" stroke-width="1"/>
+            <line x1="362.2" y1="248" x2="362.2" y2="252" stroke="var(--pietra)" stroke-width="1"/>
+            <line x1="526.3" y1="248" x2="526.3" y2="252" stroke="var(--pietra)" stroke-width="1"/>
+            <text x="34" y="264" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">Gradara · 0 km</text>
+            <text x="198.1" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">5</text>
+            <text x="362.2" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">10</text>
+            <text x="526.3" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">15</text>
+            <text x="622" y="264" text-anchor="end" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">Mondaino · 18 km</text>
+            <path d="M276.7 155.9 h7 v4.5 h-7 z M276.7 155.9 l3.5-4 3.5 4 z" fill="var(--ambra)"/>
+            <text x="280.2" y="146.9" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Tavullia</text>
+            <path d="M549.1 104.1 h7 v4.5 h-7 z M549.1 104.1 l3.5-4 3.5 4 z" fill="var(--ambra)"/>
+            <text x="552.6" y="95.1" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Montegridolfo</text>
+          </svg>
+        </div>
+        <p class="tappa-credito">Mappa: © collaboratori di OpenStreetMap</p>
+        </div>
+      </details>
+      <details class="tappa">
+        <summary>
+          <div class="giorno">3</div>
+          <div class="tappa-corpo">
+            <div><h3>Mondaino <img class="segnavia" src="img/segnavia.webp" alt="verso" width="300" height="143"> Urbino</h3></div>
+            <div class="dati"><span><b>23,5 km</b></span><span><b>650 m</b> <svg class="dislivello" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="var(--pietra)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M10 6h8v8"/></svg></span><span><b>590 m</b> <svg class="dislivello" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="var(--pietra)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6 18 18M18 10v8h-8"/></svg></span></div>
+          </div>
+          <span class="freccia" aria-hidden="true">⌄</span>
+        </summary>
+        <div class="tappa-dettaglio">
+        <div class="tappa-riga tappa-riga-testo">
+          <p class="tappa-testo">Da Mondaino il sentiero scende subito a valle, risale
+             fino a Montecalvo in Foglia — il nome viene proprio da lì, "monte calvo",
+             il colle spoglio sopra il fiume Foglia — poi scende di nuovo in un'altra
+             vallata prima di risalire per l'ultima volta, con una lunga salita che
+             passa da Pallino, già nel comune di Urbino, e arriva in cima alla collina
+             dove la città domina la valle da secoli.</p>
+          <video class="tappa-foto" controls preload="none" poster="img/tappe/mondaino-urbino-poster.webp" aria-label="Video: tappa 3, Mondaino-Urbino">
+            <source src="video/tappe/mondaino-urbino.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="tappa-riga">
+          <a class="tappa-mappa-link" href="img/tappe/mondaino-urbino-mappa-grande.webp" target="_blank" rel="noopener" title="Apri la mappa grande"><img class="tappa-mappa" src="img/tappe/mondaino-urbino-mappa.webp" alt="Mappa del percorso a piedi da Mondaino a Urbino attraverso Montecalvo in Foglia, con marcatori di distanza ogni 5 km"></a>
+          <svg class="tappa-profilo" viewBox="0 0 640 270" preserveAspectRatio="none" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-label="Profilo altimetrico da Mondaino a Urbino: 0-23,5 km, quota da 100 a circa 450 m, con Montecalvo in Foglia e Pallino">
+            <rect x="6" y="6" width="628" height="258" rx="4" stroke="var(--ambra)" stroke-width="2"/>
+            <rect x="14" y="14" width="612" height="242" rx="2" stroke="var(--ambra)" stroke-width="1"/>
+            <circle cx="18" cy="18" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <circle cx="622" cy="18" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <circle cx="18" cy="252" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <circle cx="622" cy="252" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <line x1="34" y1="248.0" x2="622" y2="248.0" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".3"/>
+            <line x1="34" y1="193.5" x2="622" y2="193.5" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".18"/>
+            <line x1="34" y1="139.0" x2="622" y2="139.0" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".18"/>
+            <line x1="34" y1="84.5" x2="622" y2="84.5" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".18"/>
+            <line x1="34" y1="30.0" x2="622" y2="30.0" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".18"/>
+            <text x="30" y="251" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">100 m</text>
+            <text x="30" y="196.5" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">200</text>
+            <text x="30" y="142.0" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">300</text>
+            <text x="30" y="87.5" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">400</text>
+            <text x="30" y="33.0" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">500 m</text>
+            <path d="M 34.0 92.7 L 34.9 92.7 L 36.2 93.3 L 37.5 93.9 L 38.7 95.5 L 39.9 97.6 L 41.4 98.6 L 42.5 102.1 L 43.9 103.0 L 45.6 106.8 L 46.9 109.1 L 47.9 113.4 L 49.6 116.4 L 51.5 121.9 L 53.4 128.9 L 54.8 134.4 L 56.0 139.1 L 57.1 144.3 L 58.6 151.1 L 59.6 153.7 L 60.6 159.4 L 62.3 165.0 L 63.9 170.5 L 65.1 176.2 L 66.4 180.4 L 68.3 182.3 L 69.3 185.5 L 70.7 187.4 L 72.4 189.0 L 73.6 190.3 L 74.7 191.3 L 75.9 192.6 L 77.1 193.7 L 78.1 196.1 L 79.4 197.6 L 81.3 199.2 L 82.5 200.8 L 83.5 203.1 L 84.6 205.0 L 85.9 206.0 L 87.2 208.1 L 88.4 210.8 L 89.6 212.8 L 90.9 214.8 L 92.5 216.8 L 93.4 217.7 L 94.8 219.8 L 95.8 220.4 L 96.7 221.5 L 97.9 222.6 L 98.9 223.6 L 100.3 224.4 L 102.3 225.9 L 103.3 227.0 L 104.7 227.9 L 106.0 228.3 L 107.6 229.7 L 109.4 230.4 L 110.4 231.2 L 111.4 231.6 L 112.5 231.9 L 113.8 232.7 L 115.1 233.7 L 116.9 234.5 L 117.9 235.6 L 118.8 236.1 L 120.1 236.7 L 121.3 237.4 L 122.5 238.0 L 124.3 238.4 L 125.8 239.7 L 128.7 240.1 L 129.9 241.3 L 130.9 241.6 L 132.1 241.6 L 133.3 240.8 L 134.3 239.8 L 135.3 239.2 L 136.8 237.5 L 138.0 235.0 L 139.5 233.0 L 143.2 227.1 L 146.0 221.8 L 148.0 218.4 L 154.4 212.2 L 155.4 207.5 L 156.6 204.6 L 157.7 203.4 L 159.6 202.2 L 160.5 199.6 L 161.6 198.6 L 164.6 196.4 L 165.7 195.3 L 166.9 193.7 L 169.4 191.9 L 172.5 190.0 L 175.8 188.3 L 176.8 185.6 L 179.4 185.2 L 180.4 183.8 L 182.4 182.8 L 185.0 181.7 L 186.4 180.5 L 187.5 177.8 L 188.5 176.3 L 190.4 172.7 L 191.6 170.1 L 192.9 167.9 L 194.1 165.4 L 195.1 162.9 L 196.8 161.8 L 198.0 160.6 L 199.2 158.5 L 200.8 157.9 L 202.5 156.5 L 205.5 155.4 L 208.0 152.8 L 211.6 149.9 L 217.2 146.8 L 218.5 140.4 L 221.0 136.5 L 223.0 133.3 L 224.1 132.2 L 225.1 131.5 L 227.0 131.3 L 228.6 133.1 L 230.6 134.1 L 232.3 137.3 L 234.5 138.6 L 235.7 141.2 L 238.2 142.8 L 245.5 143.2 L 248.7 142.3 L 250.7 141.3 L 251.9 137.9 L 253.0 135.9 L 254.0 133.8 L 255.0 131.5 L 256.4 128.7 L 258.8 127.5 L 260.7 125.7 L 261.7 126.4 L 263.3 127.4 L 266.5 128.5 L 268.9 132.8 L 271.2 133.8 L 273.0 134.8 L 275.1 135.8 L 276.6 136.0 L 280.8 138.1 L 283.2 138.9 L 286.2 140.4 L 287.2 140.9 L 288.6 142.1 L 289.8 143.3 L 291.5 147.3 L 293.2 149.4 L 295.8 151.9 L 297.4 156.1 L 299.5 157.9 L 300.5 158.9 L 303.9 161.1 L 307.0 164.5 L 308.2 166.0 L 309.2 170.4 L 310.3 172.8 L 312.3 175.4 L 313.8 182.6 L 315.8 185.2 L 316.9 196.4 L 319.1 201.9 L 326.4 207.5 L 327.4 217.3 L 328.9 220.4 L 329.8 225.7 L 334.2 228.1 L 335.3 235.0 L 337.0 236.5 L 339.4 240.5 L 341.0 241.8 L 342.0 244.0 L 346.7 244.4 L 356.1 244.4 L 357.8 244.2 L 361.4 243.6 L 362.8 243.1 L 372.4 242.5 L 373.4 241.9 L 374.7 241.4 L 375.9 241.5 L 377.1 241.7 L 378.9 242.0 L 383.1 242.6 L 387.6 243.1 L 393.8 244.5 L 398.2 247.1 L 399.4 248.8 L 401.0 249.3 L 403.0 249.2 L 405.2 248.9 L 406.4 247.2 L 408.3 246.2 L 409.3 242.0 L 416.1 236.3 L 419.1 227.3 L 420.5 225.7 L 422.3 222.9 L 423.3 220.1 L 424.9 217.5 L 426.3 214.7 L 427.3 212.2 L 428.4 210.7 L 429.8 207.3 L 432.3 204.4 L 433.7 201.1 L 438.0 198.6 L 438.9 197.2 L 442.5 195.4 L 445.9 194.0 L 450.1 192.5 L 451.4 190.7 L 453.4 187.6 L 454.4 185.1 L 457.1 179.8 L 459.2 175.0 L 460.8 171.2 L 461.8 167.6 L 462.9 165.5 L 465.0 158.3 L 471.8 150.0 L 472.8 142.5 L 474.1 140.5 L 475.1 139.7 L 476.1 137.6 L 477.2 136.8 L 478.4 135.3 L 479.5 133.5 L 483.1 130.7 L 484.2 124.0 L 487.7 120.5 L 489.6 112.3 L 490.6 109.2 L 491.9 106.3 L 493.3 104.2 L 494.6 100.4 L 496.1 97.3 L 497.4 96.3 L 499.5 94.2 L 501.6 93.3 L 502.6 92.2 L 503.9 90.9 L 506.0 89.9 L 507.9 89.0 L 509.2 88.1 L 511.4 88.2 L 513.6 88.4 L 515.2 88.7 L 516.2 89.0 L 518.8 89.5 L 520.4 89.9 L 522.2 90.3 L 523.5 90.5 L 524.6 90.7 L 525.7 90.8 L 528.4 90.7 L 529.8 89.7 L 532.1 89.0 L 533.4 87.4 L 534.7 86.2 L 537.2 83.9 L 538.2 82.1 L 539.8 81.0 L 540.7 79.8 L 543.9 78.3 L 546.6 75.5 L 548.0 73.1 L 551.7 69.7 L 554.4 68.0 L 555.8 66.4 L 557.3 64.1 L 558.3 63.3 L 559.4 63.0 L 564.0 61.3 L 566.1 60.7 L 567.7 60.1 L 568.6 60.1 L 569.8 60.1 L 572.0 60.5 L 573.9 60.8 L 574.8 61.5 L 575.9 62.1 L 577.0 62.3 L 578.4 63.2 L 579.7 63.4 L 580.8 63.9 L 581.9 64.1 L 582.8 64.4 L 584.0 64.5 L 586.2 64.5 L 587.2 64.7 L 588.3 64.6 L 590.7 64.2 L 592.4 63.5 L 594.8 62.3 L 595.9 60.9 L 597.0 60.1 L 598.4 58.5 L 600.5 56.8 L 602.1 56.2 L 604.2 55.6 L 605.4 56.3 L 606.6 56.5 L 607.6 57.1 L 612.2 59.3 L 613.5 60.5 L 614.9 60.2 L 616.1 59.9 L 617.5 59.7 L 618.9 59.6 L 619.8 59.6 L 620.8 59.6 L 621.8 59.6 L 622.0 59.6 L 622.0 248.0 L 34.0 248.0 Z" fill="var(--carta-scura)"/>
+            <path d="M 34.0 92.7 L 34.9 92.7 L 36.2 93.3 L 37.5 93.9 L 38.7 95.5 L 39.9 97.6 L 41.4 98.6 L 42.5 102.1 L 43.9 103.0 L 45.6 106.8 L 46.9 109.1 L 47.9 113.4 L 49.6 116.4 L 51.5 121.9 L 53.4 128.9 L 54.8 134.4 L 56.0 139.1 L 57.1 144.3 L 58.6 151.1 L 59.6 153.7 L 60.6 159.4 L 62.3 165.0 L 63.9 170.5 L 65.1 176.2 L 66.4 180.4 L 68.3 182.3 L 69.3 185.5 L 70.7 187.4 L 72.4 189.0 L 73.6 190.3 L 74.7 191.3 L 75.9 192.6 L 77.1 193.7 L 78.1 196.1 L 79.4 197.6 L 81.3 199.2 L 82.5 200.8 L 83.5 203.1 L 84.6 205.0 L 85.9 206.0 L 87.2 208.1 L 88.4 210.8 L 89.6 212.8 L 90.9 214.8 L 92.5 216.8 L 93.4 217.7 L 94.8 219.8 L 95.8 220.4 L 96.7 221.5 L 97.9 222.6 L 98.9 223.6 L 100.3 224.4 L 102.3 225.9 L 103.3 227.0 L 104.7 227.9 L 106.0 228.3 L 107.6 229.7 L 109.4 230.4 L 110.4 231.2 L 111.4 231.6 L 112.5 231.9 L 113.8 232.7 L 115.1 233.7 L 116.9 234.5 L 117.9 235.6 L 118.8 236.1 L 120.1 236.7 L 121.3 237.4 L 122.5 238.0 L 124.3 238.4 L 125.8 239.7 L 128.7 240.1 L 129.9 241.3 L 130.9 241.6 L 132.1 241.6 L 133.3 240.8 L 134.3 239.8 L 135.3 239.2 L 136.8 237.5 L 138.0 235.0 L 139.5 233.0 L 143.2 227.1 L 146.0 221.8 L 148.0 218.4 L 154.4 212.2 L 155.4 207.5 L 156.6 204.6 L 157.7 203.4 L 159.6 202.2 L 160.5 199.6 L 161.6 198.6 L 164.6 196.4 L 165.7 195.3 L 166.9 193.7 L 169.4 191.9 L 172.5 190.0 L 175.8 188.3 L 176.8 185.6 L 179.4 185.2 L 180.4 183.8 L 182.4 182.8 L 185.0 181.7 L 186.4 180.5 L 187.5 177.8 L 188.5 176.3 L 190.4 172.7 L 191.6 170.1 L 192.9 167.9 L 194.1 165.4 L 195.1 162.9 L 196.8 161.8 L 198.0 160.6 L 199.2 158.5 L 200.8 157.9 L 202.5 156.5 L 205.5 155.4 L 208.0 152.8 L 211.6 149.9 L 217.2 146.8 L 218.5 140.4 L 221.0 136.5 L 223.0 133.3 L 224.1 132.2 L 225.1 131.5 L 227.0 131.3 L 228.6 133.1 L 230.6 134.1 L 232.3 137.3 L 234.5 138.6 L 235.7 141.2 L 238.2 142.8 L 245.5 143.2 L 248.7 142.3 L 250.7 141.3 L 251.9 137.9 L 253.0 135.9 L 254.0 133.8 L 255.0 131.5 L 256.4 128.7 L 258.8 127.5 L 260.7 125.7 L 261.7 126.4 L 263.3 127.4 L 266.5 128.5 L 268.9 132.8 L 271.2 133.8 L 273.0 134.8 L 275.1 135.8 L 276.6 136.0 L 280.8 138.1 L 283.2 138.9 L 286.2 140.4 L 287.2 140.9 L 288.6 142.1 L 289.8 143.3 L 291.5 147.3 L 293.2 149.4 L 295.8 151.9 L 297.4 156.1 L 299.5 157.9 L 300.5 158.9 L 303.9 161.1 L 307.0 164.5 L 308.2 166.0 L 309.2 170.4 L 310.3 172.8 L 312.3 175.4 L 313.8 182.6 L 315.8 185.2 L 316.9 196.4 L 319.1 201.9 L 326.4 207.5 L 327.4 217.3 L 328.9 220.4 L 329.8 225.7 L 334.2 228.1 L 335.3 235.0 L 337.0 236.5 L 339.4 240.5 L 341.0 241.8 L 342.0 244.0 L 346.7 244.4 L 356.1 244.4 L 357.8 244.2 L 361.4 243.6 L 362.8 243.1 L 372.4 242.5 L 373.4 241.9 L 374.7 241.4 L 375.9 241.5 L 377.1 241.7 L 378.9 242.0 L 383.1 242.6 L 387.6 243.1 L 393.8 244.5 L 398.2 247.1 L 399.4 248.8 L 401.0 249.3 L 403.0 249.2 L 405.2 248.9 L 406.4 247.2 L 408.3 246.2 L 409.3 242.0 L 416.1 236.3 L 419.1 227.3 L 420.5 225.7 L 422.3 222.9 L 423.3 220.1 L 424.9 217.5 L 426.3 214.7 L 427.3 212.2 L 428.4 210.7 L 429.8 207.3 L 432.3 204.4 L 433.7 201.1 L 438.0 198.6 L 438.9 197.2 L 442.5 195.4 L 445.9 194.0 L 450.1 192.5 L 451.4 190.7 L 453.4 187.6 L 454.4 185.1 L 457.1 179.8 L 459.2 175.0 L 460.8 171.2 L 461.8 167.6 L 462.9 165.5 L 465.0 158.3 L 471.8 150.0 L 472.8 142.5 L 474.1 140.5 L 475.1 139.7 L 476.1 137.6 L 477.2 136.8 L 478.4 135.3 L 479.5 133.5 L 483.1 130.7 L 484.2 124.0 L 487.7 120.5 L 489.6 112.3 L 490.6 109.2 L 491.9 106.3 L 493.3 104.2 L 494.6 100.4 L 496.1 97.3 L 497.4 96.3 L 499.5 94.2 L 501.6 93.3 L 502.6 92.2 L 503.9 90.9 L 506.0 89.9 L 507.9 89.0 L 509.2 88.1 L 511.4 88.2 L 513.6 88.4 L 515.2 88.7 L 516.2 89.0 L 518.8 89.5 L 520.4 89.9 L 522.2 90.3 L 523.5 90.5 L 524.6 90.7 L 525.7 90.8 L 528.4 90.7 L 529.8 89.7 L 532.1 89.0 L 533.4 87.4 L 534.7 86.2 L 537.2 83.9 L 538.2 82.1 L 539.8 81.0 L 540.7 79.8 L 543.9 78.3 L 546.6 75.5 L 548.0 73.1 L 551.7 69.7 L 554.4 68.0 L 555.8 66.4 L 557.3 64.1 L 558.3 63.3 L 559.4 63.0 L 564.0 61.3 L 566.1 60.7 L 567.7 60.1 L 568.6 60.1 L 569.8 60.1 L 572.0 60.5 L 573.9 60.8 L 574.8 61.5 L 575.9 62.1 L 577.0 62.3 L 578.4 63.2 L 579.7 63.4 L 580.8 63.9 L 581.9 64.1 L 582.8 64.4 L 584.0 64.5 L 586.2 64.5 L 587.2 64.7 L 588.3 64.6 L 590.7 64.2 L 592.4 63.5 L 594.8 62.3 L 595.9 60.9 L 597.0 60.1 L 598.4 58.5 L 600.5 56.8 L 602.1 56.2 L 604.2 55.6 L 605.4 56.3 L 606.6 56.5 L 607.6 57.1 L 612.2 59.3 L 613.5 60.5 L 614.9 60.2 L 616.1 59.9 L 617.5 59.7 L 618.9 59.6 L 619.8 59.6 L 620.8 59.6 L 621.8 59.6 L 622.0 59.6" stroke="var(--ambra)" stroke-width="2.5"/>
+            <line x1="34" y1="248" x2="622" y2="248" stroke="var(--pietra)" stroke-width="1"/>
+            <line x1="159.2" y1="248" x2="159.2" y2="252" stroke="var(--pietra)" stroke-width="1"/>
+            <line x1="284.5" y1="248" x2="284.5" y2="252" stroke="var(--pietra)" stroke-width="1"/>
+            <line x1="409.7" y1="248" x2="409.7" y2="252" stroke="var(--pietra)" stroke-width="1"/>
+            <line x1="534.9" y1="248" x2="534.9" y2="252" stroke="var(--pietra)" stroke-width="1"/>
+            <text x="34" y="264" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">Mondaino · 0 km</text>
+            <text x="159.2" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">5</text>
+            <text x="284.5" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">10</text>
+            <text x="409.7" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">15</text>
+            <text x="534.9" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">20</text>
+            <text x="622" y="264" text-anchor="end" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">Urbino · 23,5 km</text>
+            <path d="M253.4 117.7 h7 v4.5 h-7 z M253.4 117.7 l3.5-4 3.5 4 z" fill="var(--ambra)"/>
+            <text x="256.9" y="108.7" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Montecalvo in Foglia</text>
+            <path d="M486.3 101.3 h7 v4.5 h-7 z M486.3 101.3 l3.5-4 3.5 4 z" fill="var(--ambra)"/>
+            <text x="489.8" y="92.3" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Pallino</text>
+          </svg>
+        </div>
+        <p class="tappa-credito">Mappa: © collaboratori di OpenStreetMap</p>
+        </div>
+      </details>
+      <details class="tappa">
+        <summary>
+          <div class="giorno">4</div>
+          <div class="tappa-corpo">
+            <div><h3>Urbino <img class="segnavia" src="img/segnavia.webp" alt="verso" width="300" height="143"> Sassocorvaro</h3></div>
+            <div class="dati"><span><b>25,5 km</b></span><span><b>600 m</b> <svg class="dislivello" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="var(--pietra)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M10 6h8v8"/></svg></span><span><b>820 m</b> <svg class="dislivello" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="var(--pietra)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6 18 18M18 10v8h-8"/></svg></span></div>
+          </div>
+          <span class="freccia" aria-hidden="true">⌄</span>
+        </summary>
+        <div class="tappa-dettaglio">
+        <div class="tappa-riga tappa-riga-testo">
+          <p class="tappa-testo">Da Urbino si esce verso nord e si scende a Gadana,
+             dove fare scorta d'acqua e di cibo per la giornata. Poi il sentiero piega
+             a ovest e corre sulle dorsali, tra campi e boschi, fino a Pieve di Cagna,
+             un antico borgo fortificato con una pieve che risale all'XI secolo,
+             abbandonata già a metà Ottocento. Da lì un lungo saliscendi porta a
+             Sassocorvaro, la cui Rocca dal 1940 fu il principale rifugio delle opere
+             salvate da Pasquale Rotondi, e infine, in discesa, a Mercatale, sulle rive
+             del lago, dove si dorme.</p>
+          <video class="tappa-foto" controls preload="none" poster="img/tappe/urbino-sassocorvaro-poster.webp" aria-label="Video: tappa 4, Urbino-Sassocorvaro">
+            <source src="video/tappe/urbino-sassocorvaro.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="tappa-riga">
+          <a class="tappa-mappa-link" href="img/tappe/urbino-sassocorvaro-mappa-grande.webp" target="_blank" rel="noopener" title="Apri la mappa grande"><img class="tappa-mappa" src="img/tappe/urbino-sassocorvaro-mappa.webp" alt="Mappa del percorso a piedi da Urbino a Mercatale di Sassocorvaro attraverso Gadana e Pieve di Cagna, con marcatori di distanza ogni 5 km"></a>
+          <svg class="tappa-profilo" viewBox="0 0 640 270" preserveAspectRatio="none" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-label="Profilo altimetrico da Urbino a Mercatale di Sassocorvaro: 0-25,5 km, quota da 180 a 500 m, con Gadana, Pieve di Cagna e Sassocorvaro">
+            <rect x="6" y="6" width="628" height="258" rx="4" stroke="var(--ambra)" stroke-width="2"/>
+            <rect x="14" y="14" width="612" height="242" rx="2" stroke="var(--ambra)" stroke-width="1"/>
+            <circle cx="18" cy="18" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <circle cx="622" cy="18" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <circle cx="18" cy="252" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <circle cx="622" cy="252" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <line x1="34" y1="248.0" x2="622" y2="248.0" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".3"/>
+            <line x1="34" y1="193.5" x2="622" y2="193.5" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".18"/>
+            <line x1="34" y1="139.0" x2="622" y2="139.0" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".18"/>
+            <line x1="34" y1="84.5" x2="622" y2="84.5" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".18"/>
+            <line x1="34" y1="30.0" x2="622" y2="30.0" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".18"/>
+            <text x="30" y="251" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">100 m</text>
+            <text x="30" y="196.5" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">200</text>
+            <text x="30" y="142.0" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">300</text>
+            <text x="30" y="87.5" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">400</text>
+            <text x="30" y="33.0" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">500 m</text>
+            <path d="M 34.0 57.3 L 35.0 57.3 L 35.9 57.3 L 36.8 57.3 L 37.7 57.3 L 38.9 57.4 L 40.3 57.5 L 41.3 56.3 L 42.9 54.0 L 43.9 52.5 L 45.4 50.5 L 46.5 50.1 L 47.5 51.1 L 49.7 52.7 L 50.7 54.5 L 51.6 55.8 L 53.2 58.0 L 54.5 60.3 L 55.7 62.2 L 57.6 62.8 L 58.6 63.9 L 60.9 64.5 L 62.7 64.5 L 63.6 64.5 L 64.6 64.4 L 65.7 64.3 L 67.4 64.1 L 68.9 64.0 L 69.8 63.5 L 71.5 63.1 L 72.6 62.7 L 73.8 62.1 L 74.9 61.6 L 77.5 60.5 L 78.9 60.2 L 80.0 60.1 L 81.5 60.3 L 82.9 61.1 L 84.8 61.8 L 87.0 63.7 L 88.3 67.1 L 90.1 68.9 L 91.5 70.4 L 92.5 73.2 L 93.5 73.6 L 94.6 75.0 L 95.8 76.1 L 97.3 77.5 L 98.4 78.8 L 99.6 80.6 L 101.9 82.5 L 103.1 85.7 L 105.4 86.6 L 107.0 87.4 L 108.1 88.1 L 109.3 88.2 L 110.4 88.6 L 112.7 89.6 L 114.5 90.2 L 115.7 91.7 L 117.0 93.3 L 118.0 94.2 L 119.4 95.0 L 120.5 96.3 L 121.9 97.6 L 122.9 99.0 L 124.6 99.7 L 127.0 103.0 L 128.4 104.1 L 129.4 106.2 L 130.3 107.5 L 131.5 110.1 L 132.8 111.3 L 134.1 113.7 L 135.4 115.4 L 136.5 118.0 L 137.6 119.3 L 138.9 121.4 L 142.6 122.0 L 143.5 122.8 L 145.1 122.5 L 146.0 122.4 L 147.0 122.0 L 148.1 120.8 L 151.0 120.1 L 152.1 118.4 L 154.3 115.3 L 155.4 112.5 L 156.7 111.2 L 158.1 108.7 L 159.7 105.6 L 160.8 103.3 L 161.7 102.6 L 162.8 102.0 L 163.9 101.5 L 166.7 101.5 L 168.7 103.1 L 170.6 104.9 L 171.7 105.8 L 172.9 106.2 L 173.9 106.6 L 174.8 107.5 L 177.6 109.1 L 178.5 111.2 L 179.4 111.8 L 180.9 114.3 L 182.3 117.0 L 183.4 121.0 L 185.6 122.7 L 186.7 127.3 L 188.5 129.5 L 191.7 133.6 L 194.3 138.5 L 195.6 142.0 L 196.9 143.4 L 198.3 145.8 L 203.0 150.1 L 204.4 153.9 L 205.5 155.3 L 207.7 159.0 L 209.3 161.4 L 210.2 163.8 L 212.9 165.9 L 214.3 169.2 L 215.3 169.9 L 216.2 171.7 L 217.5 172.8 L 219.2 176.9 L 221.1 179.5 L 224.0 182.6 L 226.2 188.1 L 227.6 191.5 L 229.0 193.5 L 230.2 194.4 L 231.2 195.9 L 232.4 197.1 L 233.7 197.7 L 235.0 198.4 L 236.4 198.2 L 237.7 197.8 L 239.5 196.8 L 240.8 195.0 L 241.9 194.0 L 243.5 193.1 L 244.9 191.8 L 248.1 191.8 L 251.1 192.0 L 254.1 194.0 L 256.0 195.0 L 257.7 196.5 L 260.1 200.6 L 264.9 202.3 L 265.9 203.7 L 267.1 204.5 L 268.3 203.1 L 270.1 202.0 L 271.7 199.5 L 273.8 193.6 L 276.2 191.0 L 278.1 188.0 L 280.4 183.8 L 281.3 181.3 L 283.6 178.6 L 286.0 175.8 L 287.0 173.3 L 288.9 169.7 L 290.8 165.6 L 292.0 162.2 L 293.0 159.8 L 295.0 156.5 L 296.2 152.7 L 297.5 147.8 L 300.5 145.2 L 301.6 139.8 L 303.6 136.3 L 304.6 133.4 L 305.9 131.7 L 307.0 129.7 L 308.1 128.0 L 309.5 125.8 L 311.1 123.4 L 312.4 122.3 L 313.4 120.4 L 315.1 119.5 L 316.0 119.2 L 317.0 118.4 L 318.2 117.6 L 319.5 116.7 L 320.6 116.1 L 322.0 115.1 L 323.0 113.3 L 325.0 112.5 L 325.9 110.4 L 329.6 109.2 L 331.8 108.8 L 333.2 108.8 L 334.2 109.3 L 335.3 109.7 L 336.5 110.6 L 337.7 111.0 L 339.4 111.5 L 340.5 112.9 L 341.7 113.6 L 342.9 115.3 L 344.2 119.0 L 346.7 121.3 L 349.4 125.7 L 350.5 130.1 L 353.0 132.1 L 354.0 134.1 L 355.1 136.3 L 356.5 139.8 L 358.9 141.7 L 360.2 145.4 L 361.6 147.6 L 362.7 150.9 L 364.5 152.4 L 365.7 155.6 L 367.0 157.6 L 368.4 161.2 L 369.9 163.6 L 373.8 168.4 L 375.1 172.2 L 376.3 174.6 L 377.8 176.9 L 379.2 178.1 L 380.1 180.8 L 381.5 181.7 L 383.0 184.1 L 385.1 186.6 L 392.5 188.1 L 394.4 188.2 L 398.3 187.9 L 399.4 187.5 L 401.2 188.6 L 402.8 189.4 L 404.8 190.2 L 406.2 190.9 L 409.7 190.9 L 410.9 188.7 L 412.3 187.5 L 413.7 184.6 L 414.9 182.7 L 416.2 178.4 L 417.1 176.8 L 418.1 174.4 L 420.6 169.9 L 421.8 165.3 L 422.9 161.6 L 424.6 159.0 L 426.0 156.1 L 428.0 153.2 L 429.7 150.9 L 430.7 148.5 L 432.5 146.2 L 433.9 141.2 L 437.0 135.9 L 437.9 129.5 L 439.8 127.0 L 441.0 124.4 L 442.6 123.6 L 444.3 123.3 L 445.2 123.7 L 446.3 124.2 L 447.5 124.2 L 448.9 123.5 L 450.5 122.3 L 451.6 120.9 L 452.8 118.5 L 454.3 117.1 L 455.6 114.1 L 457.0 111.9 L 458.2 109.1 L 459.5 107.2 L 461.3 105.3 L 462.3 103.1 L 463.3 97.6 L 465.3 95.5 L 467.3 90.0 L 468.6 87.4 L 469.7 86.0 L 470.7 84.0 L 471.7 81.3 L 473.9 78.8 L 476.1 76.4 L 478.8 73.8 L 480.0 69.9 L 481.4 68.0 L 482.4 66.3 L 485.0 65.4 L 486.2 65.9 L 487.2 66.8 L 488.3 67.9 L 489.6 69.0 L 490.7 72.4 L 492.0 74.7 L 493.2 77.1 L 494.6 79.1 L 496.3 80.7 L 497.4 82.4 L 498.5 82.5 L 499.8 81.5 L 501.5 79.4 L 503.1 78.2 L 504.2 75.8 L 505.2 73.9 L 506.5 71.2 L 508.4 66.4 L 509.4 64.4 L 510.6 60.4 L 511.8 57.9 L 512.9 56.4 L 514.2 55.7 L 515.6 55.3 L 518.3 55.5 L 519.2 55.9 L 522.1 55.0 L 523.7 52.9 L 525.4 50.5 L 527.2 45.8 L 528.6 42.5 L 530.3 38.1 L 531.2 35.3 L 533.1 33.3 L 534.1 31.3 L 535.7 30.7 L 537.9 30.0 L 539.2 30.0 L 540.2 30.8 L 541.8 32.2 L 543.6 33.9 L 545.8 35.4 L 548.1 36.4 L 549.6 36.9 L 551.1 36.9 L 552.8 36.9 L 554.6 38.5 L 555.7 40.7 L 557.8 44.2 L 559.1 46.1 L 560.1 49.7 L 561.7 54.4 L 563.3 57.5 L 565.2 61.5 L 566.9 64.8 L 567.9 66.1 L 569.3 67.4 L 570.6 69.6 L 571.9 71.0 L 572.8 72.9 L 573.8 74.4 L 575.2 77.0 L 576.9 78.3 L 577.8 84.0 L 580.9 91.0 L 583.8 101.4 L 585.3 105.4 L 586.4 114.0 L 587.8 117.3 L 589.2 120.1 L 590.7 127.1 L 591.7 131.8 L 593.3 138.5 L 594.3 142.5 L 595.6 148.7 L 596.9 157.0 L 598.1 163.6 L 599.1 166.5 L 600.1 173.5 L 601.5 176.5 L 602.5 180.2 L 605.7 186.0 L 608.3 187.8 L 609.3 188.2 L 610.5 187.1 L 613.0 185.8 L 614.1 183.2 L 619.1 180.5 L 620.4 179.7 L 622.0 179.0 L 622.0 248.0 L 34.0 248.0 Z" fill="var(--carta-scura)"/>
+            <path d="M 34.0 57.3 L 35.0 57.3 L 35.9 57.3 L 36.8 57.3 L 37.7 57.3 L 38.9 57.4 L 40.3 57.5 L 41.3 56.3 L 42.9 54.0 L 43.9 52.5 L 45.4 50.5 L 46.5 50.1 L 47.5 51.1 L 49.7 52.7 L 50.7 54.5 L 51.6 55.8 L 53.2 58.0 L 54.5 60.3 L 55.7 62.2 L 57.6 62.8 L 58.6 63.9 L 60.9 64.5 L 62.7 64.5 L 63.6 64.5 L 64.6 64.4 L 65.7 64.3 L 67.4 64.1 L 68.9 64.0 L 69.8 63.5 L 71.5 63.1 L 72.6 62.7 L 73.8 62.1 L 74.9 61.6 L 77.5 60.5 L 78.9 60.2 L 80.0 60.1 L 81.5 60.3 L 82.9 61.1 L 84.8 61.8 L 87.0 63.7 L 88.3 67.1 L 90.1 68.9 L 91.5 70.4 L 92.5 73.2 L 93.5 73.6 L 94.6 75.0 L 95.8 76.1 L 97.3 77.5 L 98.4 78.8 L 99.6 80.6 L 101.9 82.5 L 103.1 85.7 L 105.4 86.6 L 107.0 87.4 L 108.1 88.1 L 109.3 88.2 L 110.4 88.6 L 112.7 89.6 L 114.5 90.2 L 115.7 91.7 L 117.0 93.3 L 118.0 94.2 L 119.4 95.0 L 120.5 96.3 L 121.9 97.6 L 122.9 99.0 L 124.6 99.7 L 127.0 103.0 L 128.4 104.1 L 129.4 106.2 L 130.3 107.5 L 131.5 110.1 L 132.8 111.3 L 134.1 113.7 L 135.4 115.4 L 136.5 118.0 L 137.6 119.3 L 138.9 121.4 L 142.6 122.0 L 143.5 122.8 L 145.1 122.5 L 146.0 122.4 L 147.0 122.0 L 148.1 120.8 L 151.0 120.1 L 152.1 118.4 L 154.3 115.3 L 155.4 112.5 L 156.7 111.2 L 158.1 108.7 L 159.7 105.6 L 160.8 103.3 L 161.7 102.6 L 162.8 102.0 L 163.9 101.5 L 166.7 101.5 L 168.7 103.1 L 170.6 104.9 L 171.7 105.8 L 172.9 106.2 L 173.9 106.6 L 174.8 107.5 L 177.6 109.1 L 178.5 111.2 L 179.4 111.8 L 180.9 114.3 L 182.3 117.0 L 183.4 121.0 L 185.6 122.7 L 186.7 127.3 L 188.5 129.5 L 191.7 133.6 L 194.3 138.5 L 195.6 142.0 L 196.9 143.4 L 198.3 145.8 L 203.0 150.1 L 204.4 153.9 L 205.5 155.3 L 207.7 159.0 L 209.3 161.4 L 210.2 163.8 L 212.9 165.9 L 214.3 169.2 L 215.3 169.9 L 216.2 171.7 L 217.5 172.8 L 219.2 176.9 L 221.1 179.5 L 224.0 182.6 L 226.2 188.1 L 227.6 191.5 L 229.0 193.5 L 230.2 194.4 L 231.2 195.9 L 232.4 197.1 L 233.7 197.7 L 235.0 198.4 L 236.4 198.2 L 237.7 197.8 L 239.5 196.8 L 240.8 195.0 L 241.9 194.0 L 243.5 193.1 L 244.9 191.8 L 248.1 191.8 L 251.1 192.0 L 254.1 194.0 L 256.0 195.0 L 257.7 196.5 L 260.1 200.6 L 264.9 202.3 L 265.9 203.7 L 267.1 204.5 L 268.3 203.1 L 270.1 202.0 L 271.7 199.5 L 273.8 193.6 L 276.2 191.0 L 278.1 188.0 L 280.4 183.8 L 281.3 181.3 L 283.6 178.6 L 286.0 175.8 L 287.0 173.3 L 288.9 169.7 L 290.8 165.6 L 292.0 162.2 L 293.0 159.8 L 295.0 156.5 L 296.2 152.7 L 297.5 147.8 L 300.5 145.2 L 301.6 139.8 L 303.6 136.3 L 304.6 133.4 L 305.9 131.7 L 307.0 129.7 L 308.1 128.0 L 309.5 125.8 L 311.1 123.4 L 312.4 122.3 L 313.4 120.4 L 315.1 119.5 L 316.0 119.2 L 317.0 118.4 L 318.2 117.6 L 319.5 116.7 L 320.6 116.1 L 322.0 115.1 L 323.0 113.3 L 325.0 112.5 L 325.9 110.4 L 329.6 109.2 L 331.8 108.8 L 333.2 108.8 L 334.2 109.3 L 335.3 109.7 L 336.5 110.6 L 337.7 111.0 L 339.4 111.5 L 340.5 112.9 L 341.7 113.6 L 342.9 115.3 L 344.2 119.0 L 346.7 121.3 L 349.4 125.7 L 350.5 130.1 L 353.0 132.1 L 354.0 134.1 L 355.1 136.3 L 356.5 139.8 L 358.9 141.7 L 360.2 145.4 L 361.6 147.6 L 362.7 150.9 L 364.5 152.4 L 365.7 155.6 L 367.0 157.6 L 368.4 161.2 L 369.9 163.6 L 373.8 168.4 L 375.1 172.2 L 376.3 174.6 L 377.8 176.9 L 379.2 178.1 L 380.1 180.8 L 381.5 181.7 L 383.0 184.1 L 385.1 186.6 L 392.5 188.1 L 394.4 188.2 L 398.3 187.9 L 399.4 187.5 L 401.2 188.6 L 402.8 189.4 L 404.8 190.2 L 406.2 190.9 L 409.7 190.9 L 410.9 188.7 L 412.3 187.5 L 413.7 184.6 L 414.9 182.7 L 416.2 178.4 L 417.1 176.8 L 418.1 174.4 L 420.6 169.9 L 421.8 165.3 L 422.9 161.6 L 424.6 159.0 L 426.0 156.1 L 428.0 153.2 L 429.7 150.9 L 430.7 148.5 L 432.5 146.2 L 433.9 141.2 L 437.0 135.9 L 437.9 129.5 L 439.8 127.0 L 441.0 124.4 L 442.6 123.6 L 444.3 123.3 L 445.2 123.7 L 446.3 124.2 L 447.5 124.2 L 448.9 123.5 L 450.5 122.3 L 451.6 120.9 L 452.8 118.5 L 454.3 117.1 L 455.6 114.1 L 457.0 111.9 L 458.2 109.1 L 459.5 107.2 L 461.3 105.3 L 462.3 103.1 L 463.3 97.6 L 465.3 95.5 L 467.3 90.0 L 468.6 87.4 L 469.7 86.0 L 470.7 84.0 L 471.7 81.3 L 473.9 78.8 L 476.1 76.4 L 478.8 73.8 L 480.0 69.9 L 481.4 68.0 L 482.4 66.3 L 485.0 65.4 L 486.2 65.9 L 487.2 66.8 L 488.3 67.9 L 489.6 69.0 L 490.7 72.4 L 492.0 74.7 L 493.2 77.1 L 494.6 79.1 L 496.3 80.7 L 497.4 82.4 L 498.5 82.5 L 499.8 81.5 L 501.5 79.4 L 503.1 78.2 L 504.2 75.8 L 505.2 73.9 L 506.5 71.2 L 508.4 66.4 L 509.4 64.4 L 510.6 60.4 L 511.8 57.9 L 512.9 56.4 L 514.2 55.7 L 515.6 55.3 L 518.3 55.5 L 519.2 55.9 L 522.1 55.0 L 523.7 52.9 L 525.4 50.5 L 527.2 45.8 L 528.6 42.5 L 530.3 38.1 L 531.2 35.3 L 533.1 33.3 L 534.1 31.3 L 535.7 30.7 L 537.9 30.0 L 539.2 30.0 L 540.2 30.8 L 541.8 32.2 L 543.6 33.9 L 545.8 35.4 L 548.1 36.4 L 549.6 36.9 L 551.1 36.9 L 552.8 36.9 L 554.6 38.5 L 555.7 40.7 L 557.8 44.2 L 559.1 46.1 L 560.1 49.7 L 561.7 54.4 L 563.3 57.5 L 565.2 61.5 L 566.9 64.8 L 567.9 66.1 L 569.3 67.4 L 570.6 69.6 L 571.9 71.0 L 572.8 72.9 L 573.8 74.4 L 575.2 77.0 L 576.9 78.3 L 577.8 84.0 L 580.9 91.0 L 583.8 101.4 L 585.3 105.4 L 586.4 114.0 L 587.8 117.3 L 589.2 120.1 L 590.7 127.1 L 591.7 131.8 L 593.3 138.5 L 594.3 142.5 L 595.6 148.7 L 596.9 157.0 L 598.1 163.6 L 599.1 166.5 L 600.1 173.5 L 601.5 176.5 L 602.5 180.2 L 605.7 186.0 L 608.3 187.8 L 609.3 188.2 L 610.5 187.1 L 613.0 185.8 L 614.1 183.2 L 619.1 180.5 L 620.4 179.7 L 622.0 179.0" stroke="var(--ambra)" stroke-width="2.5"/>
+            <line x1="34" y1="248" x2="622" y2="248" stroke="var(--pietra)" stroke-width="1"/>
+            <line x1="149.4" y1="248" x2="149.4" y2="252" stroke="var(--pietra)" stroke-width="1"/>
+            <line x1="264.9" y1="248" x2="264.9" y2="252" stroke="var(--pietra)" stroke-width="1"/>
+            <line x1="380.3" y1="248" x2="380.3" y2="252" stroke="var(--pietra)" stroke-width="1"/>
+            <line x1="495.7" y1="248" x2="495.7" y2="252" stroke="var(--pietra)" stroke-width="1"/>
+            <line x1="611.2" y1="248" x2="611.2" y2="252" stroke="var(--pietra)" stroke-width="1"/>
+            <text x="34" y="264" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">Urbino · 0 km</text>
+            <text x="149.4" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">5</text>
+            <text x="264.9" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">10</text>
+            <text x="380.3" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">15</text>
+            <text x="495.7" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">20</text>
+            <text x="622" y="264" text-anchor="end" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">Mercatale · 25,5 km</text>
+            <path d="M132.1 105.2 h7 v4.5 h-7 z M132.1 105.2 l3.5-4 3.5 4 z" fill="var(--ambra)"/>
+            <text x="135.6" y="95.2" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Gadana</text>
+            <path d="M319.1 103.2 h7 v4.5 h-7 z M319.1 103.2 l3.5-4 3.5 4 z" fill="var(--ambra)"/>
+            <text x="322.6" y="93.2" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Pieve di Cagna</text>
+            <path d="M582.3 99.1 h7 v4.5 h-7 z M582.3 99.1 l3.5-4 3.5 4 z" fill="var(--ambra)"/>
+            <text x="585.8" y="89.1" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Sassocorvaro</text>
+          </svg>
+        </div>
+        <p class="tappa-credito">Mappa: © collaboratori di OpenStreetMap</p>
+        </div>
+      </details>
+      <details class="tappa">
+        <summary>
+          <div class="giorno">5</div>
+          <div class="tappa-corpo">
+            <div><h3>Sassocorvaro <img class="segnavia" src="img/segnavia.webp" alt="verso" width="300" height="143"> Carpegna</h3></div>
+            <div class="dati"><span><b>20,4 km</b></span><span><b>950 m</b> <svg class="dislivello" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="var(--pietra)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M10 6h8v8"/></svg></span><span><b>440 m</b> <svg class="dislivello" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="var(--pietra)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6 18 18M18 10v8h-8"/></svg></span></div>
+          </div>
+          <span class="freccia" aria-hidden="true">⌄</span>
+        </summary>
+        <div class="tappa-dettaglio">
+        <div class="tappa-riga tappa-riga-testo">
+          <p class="tappa-testo">Da Mercatale si attraversa la valle del Foglia e si
+             sale sulle colline a sud di Macerata Feltria, che resta più a nord, a un
+             paio di chilometri. Dopo un lungo saliscendi tra campi e boschi si arriva
+             al borgo di Petrelle, e da lì si sale con decisione fino a Pietrarubbia,
+             il borgo di pietra rossa quasi disabitato dove lo scultore Arnaldo
+             Pomodoro ha aperto una scuola d'arte. Si scende a Ponte Cappuccini, poi
+             l'ultima salita sui fianchi del Monte Carpegna tocca quasi 800 metri, il
+             punto più alto delle cinque tappe, prima di entrare a Carpegna, dove il
+             Palazzo dei Principi fu il secondo rifugio delle opere salvate da
+             Pasquale Rotondi.</p>
+          <div class="tappa-video-placeholder">Video in arrivo</div>
+        </div>
+        <div class="tappa-riga">
+          <a class="tappa-mappa-link" href="img/tappe/sassocorvaro-carpegna-mappa-grande.webp" target="_blank" rel="noopener" title="Apri la mappa grande"><img class="tappa-mappa" src="img/tappe/sassocorvaro-carpegna-mappa.webp" alt="Mappa del percorso a piedi da Mercatale di Sassocorvaro a Carpegna attraverso Petrelle e Pietrarubbia, con marcatori di distanza ogni 5 km"></a>
+          <svg class="tappa-profilo" viewBox="0 0 640 270" preserveAspectRatio="none" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-label="Profilo altimetrico da Mercatale di Sassocorvaro a Carpegna: 0-20,4 km, quota da 220 a 800 m, il punto più alto delle cinque tappe, con Petrelle, Pietrarubbia e Ponte Cappuccini">
+            <rect x="6" y="6" width="628" height="258" rx="4" stroke="var(--ambra)" stroke-width="2"/>
+            <rect x="14" y="14" width="612" height="242" rx="2" stroke="var(--ambra)" stroke-width="1"/>
+            <circle cx="18" cy="18" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <circle cx="622" cy="18" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <circle cx="18" cy="252" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <circle cx="622" cy="252" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <line x1="34" y1="248.0" x2="622" y2="248.0" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".3"/>
+            <line x1="34" y1="175.3" x2="622" y2="175.3" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".18"/>
+            <line x1="34" y1="102.7" x2="622" y2="102.7" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".18"/>
+            <line x1="34" y1="30.0" x2="622" y2="30.0" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".18"/>
+            <text x="30" y="251" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">200 m</text>
+            <text x="30" y="178.3" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">400</text>
+            <text x="30" y="105.7" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">600</text>
+            <text x="30" y="33.0" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">800 m</text>
+            <path d="M 34.0 236.6 L 35.2 236.5 L 40.7 236.5 L 42.1 236.4 L 43.4 236.6 L 44.5 236.8 L 46.6 237.0 L 47.5 237.2 L 49.2 237.5 L 53.3 237.5 L 54.6 237.8 L 61.7 238.0 L 62.7 238.2 L 65.5 238.8 L 67.3 239.9 L 70.9 240.4 L 72.0 241.2 L 75.0 241.4 L 76.1 241.4 L 77.9 241.3 L 79.9 240.6 L 81.9 239.1 L 84.8 238.4 L 88.4 234.5 L 89.8 230.5 L 92.2 228.4 L 93.2 226.2 L 95.4 224.1 L 97.2 219.9 L 99.1 217.6 L 100.4 213.8 L 103.5 212.7 L 105.5 209.0 L 106.6 206.4 L 107.7 204.8 L 109.5 202.8 L 110.7 199.9 L 112.1 196.5 L 114.4 193.1 L 116.3 189.8 L 117.5 186.2 L 119.9 180.7 L 121.0 178.3 L 122.7 172.2 L 125.7 169.7 L 127.3 164.6 L 129.1 162.1 L 130.6 160.3 L 131.6 159.9 L 135.1 159.5 L 137.4 159.2 L 139.3 158.8 L 140.6 158.7 L 143.7 158.8 L 149.9 160.0 L 152.2 161.2 L 154.1 162.9 L 155.1 164.7 L 157.3 167.0 L 158.8 169.8 L 161.5 172.4 L 164.8 174.9 L 166.0 177.1 L 170.6 178.5 L 172.2 179.1 L 173.4 179.6 L 176.0 180.6 L 178.1 181.2 L 179.2 181.8 L 180.2 183.0 L 182.3 183.7 L 183.6 183.9 L 184.9 184.1 L 186.7 184.2 L 188.3 183.9 L 189.3 183.7 L 190.6 183.1 L 191.9 182.7 L 194.0 182.4 L 195.2 182.5 L 196.6 182.5 L 197.9 182.6 L 199.7 182.6 L 201.0 182.4 L 202.3 182.3 L 203.2 182.2 L 204.3 181.4 L 205.8 180.7 L 206.8 180.0 L 207.8 179.2 L 208.9 177.5 L 210.1 176.7 L 211.1 175.8 L 212.1 174.8 L 213.0 173.8 L 214.2 172.8 L 215.9 171.3 L 217.5 169.7 L 218.8 168.3 L 220.3 167.4 L 223.8 166.6 L 225.6 165.8 L 227.4 165.0 L 228.6 165.0 L 229.6 165.1 L 231.0 165.3 L 232.2 165.7 L 236.3 169.2 L 237.3 171.5 L 238.8 174.4 L 241.8 177.4 L 244.1 180.9 L 247.8 184.8 L 250.2 188.2 L 255.2 191.0 L 257.0 192.9 L 258.3 194.9 L 259.3 195.5 L 261.5 196.5 L 262.4 197.0 L 263.9 197.7 L 265.1 197.7 L 269.2 197.6 L 270.2 197.4 L 271.5 196.6 L 272.5 196.2 L 273.5 195.1 L 275.6 192.8 L 278.1 191.5 L 279.5 189.0 L 280.5 187.6 L 281.6 186.1 L 283.3 184.6 L 284.6 182.4 L 286.0 180.2 L 287.1 178.7 L 288.1 176.0 L 289.5 173.1 L 293.4 170.2 L 294.8 167.2 L 295.8 164.3 L 297.1 162.6 L 298.4 161.0 L 300.6 158.4 L 301.8 156.3 L 302.8 155.0 L 303.8 153.7 L 304.9 152.3 L 306.8 150.7 L 308.0 148.1 L 309.3 147.0 L 311.3 144.2 L 313.4 141.4 L 314.6 139.5 L 315.5 138.8 L 316.6 138.7 L 320.4 138.1 L 321.9 137.0 L 324.1 136.5 L 325.2 135.3 L 326.3 134.8 L 328.7 131.8 L 331.1 126.8 L 335.4 122.8 L 339.9 116.6 L 341.8 115.0 L 343.6 112.5 L 344.5 112.0 L 345.7 111.0 L 346.8 110.2 L 348.4 109.8 L 349.6 109.5 L 350.7 109.7 L 353.4 109.9 L 354.5 110.4 L 355.4 110.7 L 356.9 110.8 L 358.1 111.2 L 359.7 111.2 L 362.6 111.1 L 364.6 110.7 L 365.9 110.1 L 368.5 109.5 L 369.5 109.2 L 370.7 108.3 L 371.9 108.1 L 373.2 107.4 L 375.1 106.2 L 376.4 103.9 L 380.0 102.9 L 381.0 101.8 L 381.9 100.1 L 383.3 98.8 L 384.3 97.7 L 385.4 96.8 L 387.6 94.7 L 388.9 92.9 L 390.7 91.5 L 391.6 88.9 L 393.8 87.9 L 395.2 85.1 L 397.5 84.0 L 398.4 81.8 L 401.4 80.0 L 402.7 78.4 L 404.5 77.7 L 405.6 77.2 L 407.3 75.2 L 409.0 74.2 L 410.7 73.0 L 411.8 70.7 L 413.4 69.2 L 415.2 66.3 L 416.4 64.1 L 418.0 62.0 L 419.1 60.1 L 420.2 58.7 L 421.6 57.4 L 422.9 55.6 L 423.9 54.1 L 424.8 53.3 L 426.2 52.4 L 427.6 50.7 L 429.8 48.5 L 435.4 47.6 L 436.5 46.4 L 437.5 46.8 L 438.8 47.3 L 440.5 47.9 L 441.6 48.7 L 442.6 49.7 L 443.6 50.9 L 444.9 52.2 L 447.5 55.1 L 448.6 57.4 L 449.9 59.5 L 451.7 61.7 L 452.7 64.0 L 453.8 65.0 L 455.0 66.8 L 456.6 68.2 L 458.1 70.4 L 459.7 72.4 L 461.9 73.2 L 463.3 75.3 L 464.8 77.0 L 467.5 79.7 L 468.8 81.3 L 469.9 82.9 L 471.3 84.2 L 472.5 86.2 L 473.7 88.4 L 475.3 89.5 L 479.0 90.4 L 480.0 91.4 L 481.3 91.3 L 482.6 91.0 L 483.9 89.0 L 485.9 87.0 L 487.5 84.4 L 489.6 81.6 L 490.9 78.5 L 492.4 75.6 L 493.4 74.4 L 494.6 71.5 L 497.5 70.5 L 499.3 70.0 L 500.4 69.7 L 501.8 70.0 L 503.0 70.7 L 504.2 72.7 L 508.6 75.4 L 510.6 76.5 L 512.2 77.8 L 514.1 77.1 L 515.7 76.3 L 516.7 75.2 L 517.7 74.5 L 519.0 73.4 L 522.6 70.9 L 524.0 68.9 L 525.1 67.0 L 527.4 66.0 L 529.1 65.0 L 530.1 62.5 L 537.0 57.8 L 537.9 55.3 L 539.1 52.6 L 540.3 51.1 L 541.5 45.5 L 544.5 42.4 L 546.2 39.0 L 548.3 36.0 L 550.3 34.1 L 552.9 32.3 L 554.5 31.9 L 556.1 32.1 L 558.0 32.1 L 559.0 31.9 L 560.1 31.6 L 562.1 31.1 L 563.7 30.6 L 565.0 30.5 L 566.4 30.2 L 567.3 30.1 L 568.2 30.1 L 569.5 30.4 L 571.3 30.8 L 573.0 31.3 L 574.7 31.8 L 575.7 32.2 L 576.8 32.4 L 577.8 32.6 L 579.5 32.7 L 580.8 32.8 L 581.8 32.9 L 583.6 32.9 L 585.3 32.9 L 586.3 32.9 L 587.3 33.0 L 589.5 33.2 L 591.3 33.5 L 592.7 33.8 L 594.2 34.2 L 595.2 34.7 L 596.7 35.6 L 598.6 37.1 L 599.8 38.8 L 602.7 40.6 L 604.7 44.2 L 605.7 45.3 L 607.3 47.2 L 608.3 48.7 L 610.7 49.9 L 612.7 50.8 L 613.7 51.2 L 616.2 51.5 L 617.5 51.6 L 618.4 51.6 L 619.5 51.6 L 621.3 51.6 L 622.0 51.6 L 622.0 248.0 L 34.0 248.0 Z" fill="var(--carta-scura)"/>
+            <path d="M 34.0 236.6 L 35.2 236.5 L 40.7 236.5 L 42.1 236.4 L 43.4 236.6 L 44.5 236.8 L 46.6 237.0 L 47.5 237.2 L 49.2 237.5 L 53.3 237.5 L 54.6 237.8 L 61.7 238.0 L 62.7 238.2 L 65.5 238.8 L 67.3 239.9 L 70.9 240.4 L 72.0 241.2 L 75.0 241.4 L 76.1 241.4 L 77.9 241.3 L 79.9 240.6 L 81.9 239.1 L 84.8 238.4 L 88.4 234.5 L 89.8 230.5 L 92.2 228.4 L 93.2 226.2 L 95.4 224.1 L 97.2 219.9 L 99.1 217.6 L 100.4 213.8 L 103.5 212.7 L 105.5 209.0 L 106.6 206.4 L 107.7 204.8 L 109.5 202.8 L 110.7 199.9 L 112.1 196.5 L 114.4 193.1 L 116.3 189.8 L 117.5 186.2 L 119.9 180.7 L 121.0 178.3 L 122.7 172.2 L 125.7 169.7 L 127.3 164.6 L 129.1 162.1 L 130.6 160.3 L 131.6 159.9 L 135.1 159.5 L 137.4 159.2 L 139.3 158.8 L 140.6 158.7 L 143.7 158.8 L 149.9 160.0 L 152.2 161.2 L 154.1 162.9 L 155.1 164.7 L 157.3 167.0 L 158.8 169.8 L 161.5 172.4 L 164.8 174.9 L 166.0 177.1 L 170.6 178.5 L 172.2 179.1 L 173.4 179.6 L 176.0 180.6 L 178.1 181.2 L 179.2 181.8 L 180.2 183.0 L 182.3 183.7 L 183.6 183.9 L 184.9 184.1 L 186.7 184.2 L 188.3 183.9 L 189.3 183.7 L 190.6 183.1 L 191.9 182.7 L 194.0 182.4 L 195.2 182.5 L 196.6 182.5 L 197.9 182.6 L 199.7 182.6 L 201.0 182.4 L 202.3 182.3 L 203.2 182.2 L 204.3 181.4 L 205.8 180.7 L 206.8 180.0 L 207.8 179.2 L 208.9 177.5 L 210.1 176.7 L 211.1 175.8 L 212.1 174.8 L 213.0 173.8 L 214.2 172.8 L 215.9 171.3 L 217.5 169.7 L 218.8 168.3 L 220.3 167.4 L 223.8 166.6 L 225.6 165.8 L 227.4 165.0 L 228.6 165.0 L 229.6 165.1 L 231.0 165.3 L 232.2 165.7 L 236.3 169.2 L 237.3 171.5 L 238.8 174.4 L 241.8 177.4 L 244.1 180.9 L 247.8 184.8 L 250.2 188.2 L 255.2 191.0 L 257.0 192.9 L 258.3 194.9 L 259.3 195.5 L 261.5 196.5 L 262.4 197.0 L 263.9 197.7 L 265.1 197.7 L 269.2 197.6 L 270.2 197.4 L 271.5 196.6 L 272.5 196.2 L 273.5 195.1 L 275.6 192.8 L 278.1 191.5 L 279.5 189.0 L 280.5 187.6 L 281.6 186.1 L 283.3 184.6 L 284.6 182.4 L 286.0 180.2 L 287.1 178.7 L 288.1 176.0 L 289.5 173.1 L 293.4 170.2 L 294.8 167.2 L 295.8 164.3 L 297.1 162.6 L 298.4 161.0 L 300.6 158.4 L 301.8 156.3 L 302.8 155.0 L 303.8 153.7 L 304.9 152.3 L 306.8 150.7 L 308.0 148.1 L 309.3 147.0 L 311.3 144.2 L 313.4 141.4 L 314.6 139.5 L 315.5 138.8 L 316.6 138.7 L 320.4 138.1 L 321.9 137.0 L 324.1 136.5 L 325.2 135.3 L 326.3 134.8 L 328.7 131.8 L 331.1 126.8 L 335.4 122.8 L 339.9 116.6 L 341.8 115.0 L 343.6 112.5 L 344.5 112.0 L 345.7 111.0 L 346.8 110.2 L 348.4 109.8 L 349.6 109.5 L 350.7 109.7 L 353.4 109.9 L 354.5 110.4 L 355.4 110.7 L 356.9 110.8 L 358.1 111.2 L 359.7 111.2 L 362.6 111.1 L 364.6 110.7 L 365.9 110.1 L 368.5 109.5 L 369.5 109.2 L 370.7 108.3 L 371.9 108.1 L 373.2 107.4 L 375.1 106.2 L 376.4 103.9 L 380.0 102.9 L 381.0 101.8 L 381.9 100.1 L 383.3 98.8 L 384.3 97.7 L 385.4 96.8 L 387.6 94.7 L 388.9 92.9 L 390.7 91.5 L 391.6 88.9 L 393.8 87.9 L 395.2 85.1 L 397.5 84.0 L 398.4 81.8 L 401.4 80.0 L 402.7 78.4 L 404.5 77.7 L 405.6 77.2 L 407.3 75.2 L 409.0 74.2 L 410.7 73.0 L 411.8 70.7 L 413.4 69.2 L 415.2 66.3 L 416.4 64.1 L 418.0 62.0 L 419.1 60.1 L 420.2 58.7 L 421.6 57.4 L 422.9 55.6 L 423.9 54.1 L 424.8 53.3 L 426.2 52.4 L 427.6 50.7 L 429.8 48.5 L 435.4 47.6 L 436.5 46.4 L 437.5 46.8 L 438.8 47.3 L 440.5 47.9 L 441.6 48.7 L 442.6 49.7 L 443.6 50.9 L 444.9 52.2 L 447.5 55.1 L 448.6 57.4 L 449.9 59.5 L 451.7 61.7 L 452.7 64.0 L 453.8 65.0 L 455.0 66.8 L 456.6 68.2 L 458.1 70.4 L 459.7 72.4 L 461.9 73.2 L 463.3 75.3 L 464.8 77.0 L 467.5 79.7 L 468.8 81.3 L 469.9 82.9 L 471.3 84.2 L 472.5 86.2 L 473.7 88.4 L 475.3 89.5 L 479.0 90.4 L 480.0 91.4 L 481.3 91.3 L 482.6 91.0 L 483.9 89.0 L 485.9 87.0 L 487.5 84.4 L 489.6 81.6 L 490.9 78.5 L 492.4 75.6 L 493.4 74.4 L 494.6 71.5 L 497.5 70.5 L 499.3 70.0 L 500.4 69.7 L 501.8 70.0 L 503.0 70.7 L 504.2 72.7 L 508.6 75.4 L 510.6 76.5 L 512.2 77.8 L 514.1 77.1 L 515.7 76.3 L 516.7 75.2 L 517.7 74.5 L 519.0 73.4 L 522.6 70.9 L 524.0 68.9 L 525.1 67.0 L 527.4 66.0 L 529.1 65.0 L 530.1 62.5 L 537.0 57.8 L 537.9 55.3 L 539.1 52.6 L 540.3 51.1 L 541.5 45.5 L 544.5 42.4 L 546.2 39.0 L 548.3 36.0 L 550.3 34.1 L 552.9 32.3 L 554.5 31.9 L 556.1 32.1 L 558.0 32.1 L 559.0 31.9 L 560.1 31.6 L 562.1 31.1 L 563.7 30.6 L 565.0 30.5 L 566.4 30.2 L 567.3 30.1 L 568.2 30.1 L 569.5 30.4 L 571.3 30.8 L 573.0 31.3 L 574.7 31.8 L 575.7 32.2 L 576.8 32.4 L 577.8 32.6 L 579.5 32.7 L 580.8 32.8 L 581.8 32.9 L 583.6 32.9 L 585.3 32.9 L 586.3 32.9 L 587.3 33.0 L 589.5 33.2 L 591.3 33.5 L 592.7 33.8 L 594.2 34.2 L 595.2 34.7 L 596.7 35.6 L 598.6 37.1 L 599.8 38.8 L 602.7 40.6 L 604.7 44.2 L 605.7 45.3 L 607.3 47.2 L 608.3 48.7 L 610.7 49.9 L 612.7 50.8 L 613.7 51.2 L 616.2 51.5 L 617.5 51.6 L 618.4 51.6 L 619.5 51.6 L 621.3 51.6 L 622.0 51.6" stroke="var(--ambra)" stroke-width="2.5"/>
+            <line x1="34" y1="248" x2="622" y2="248" stroke="var(--pietra)" stroke-width="1"/>
+            <line x1="178.6" y1="248" x2="178.6" y2="252" stroke="var(--pietra)" stroke-width="1"/>
+            <line x1="323.3" y1="248" x2="323.3" y2="252" stroke="var(--pietra)" stroke-width="1"/>
+            <line x1="467.9" y1="248" x2="467.9" y2="252" stroke="var(--pietra)" stroke-width="1"/>
+            <text x="34" y="264" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">Mercatale · 0 km</text>
+            <text x="178.6" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">5</text>
+            <text x="323.3" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">10</text>
+            <text x="467.9" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">15</text>
+            <text x="622" y="264" text-anchor="end" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">Carpegna · 20,4 km</text>
+            <path d="M371.8 94.8 h7 v4.5 h-7 z M371.8 94.8 l3.5-4 3.5 4 z" fill="var(--ambra)"/>
+            <text x="375.3" y="85.8" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Petrelle</text>
+            <path d="M449.9 54.0 h7 v4.5 h-7 z M449.9 54.0 l3.5-4 3.5 4 z" fill="var(--ambra)"/>
+            <text x="453.4" y="45.0" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Pietrarubbia</text>
+            <path d="M522.3 56.0 h7 v4.5 h-7 z M522.3 56.0 l3.5-4 3.5 4 z" fill="var(--ambra)"/>
+            <text x="525.8" y="47.0" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Ponte Cappuccini</text>
+          </svg>
+        </div>
+        <p class="tappa-credito">Mappa: © collaboratori di OpenStreetMap</p>
+        </div>
+      </details>
+      <details class="tappa">
+        <summary>
+          <div class="giorno" style="font-style:italic">6</div>
+          <div class="tappa-corpo">
+            <div><h3 style="font-style:italic">Extra · Sasso Simone e l'Eremo</h3></div>
+            <div class="dati dati-ritorno">
+              <span style="font-size:.8rem"><b>20 km</b> · <b>860 m</b> <svg class="dislivello" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="var(--pietra)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M10 6h8v8"/></svg> · <b>856 m</b> <svg class="dislivello" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="var(--pietra)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6 18 18M18 10v8h-8"/></svg></span>
+              <svg viewBox="0 0 40 44" width="22" height="24" fill="none" stroke="var(--ambra)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="il tuo Salvacondotto, firmato e timbrato">
+                <rect x="7" y="3" width="26" height="27" rx="2"/>
+                <line x1="11" y1="9" x2="29" y2="9"/>
+                <line x1="11" y1="13.5" x2="29" y2="13.5"/>
+                <line x1="11" y1="18" x2="23" y2="18"/>
+                <path d="M11 24.5 q2 -3 4 0 q2 -3 4 0 q2 -3 4 0 q2 -3 4 0"/>
+                <path d="M15 29 L15 40 L20 36 L25 40 L25 29" fill="var(--verde)" stroke="none"/>
+                <circle cx="20" cy="29" r="6.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="2"/>
+                <path d="M20 24.5 l1.3 2.7 2.9 0.4 -2.1 2.1 0.5 2.9 -2.6 -1.4 -2.6 1.4 0.5 -2.9 -2.1 -2.1 2.9 -0.4 z" fill="var(--ambra)" stroke="none"/>
+              </svg>
+              <svg viewBox="0 0 64 40" width="34" height="21" fill="none" stroke="var(--ambra)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="si torna a Pesaro in bus">
+                <line x1="0" y1="12" x2="7" y2="12"/>
+                <line x1="0" y1="19" x2="9" y2="19"/>
+                <line x1="0" y1="26" x2="7" y2="26"/>
+                <rect x="10" y="8" width="44" height="20" rx="2.5"/>
+                <line x1="10" y1="18" x2="54" y2="18"/>
+                <rect x="13.5" y="10.5" width="7" height="6.5" rx="1"/>
+                <rect x="23.5" y="10.5" width="7" height="6.5" rx="1"/>
+                <rect x="33.5" y="10.5" width="7" height="6.5" rx="1"/>
+                <rect x="43.5" y="10.5" width="7" height="6.5" rx="1"/>
+                <line x1="18" y1="18" x2="18" y2="28"/>
+                <line x1="8" y1="28" x2="56" y2="28"/>
+                <circle cx="52" cy="23" r="1.4" fill="var(--ambra)" stroke="none"/>
+                <circle cx="20" cy="30" r="4.5" fill="var(--carta)"/>
+                <circle cx="44" cy="30" r="4.5" fill="var(--carta)"/>
+                <circle cx="20" cy="30" r="1.3" fill="var(--ambra)" stroke="none"/>
+                <circle cx="44" cy="30" r="1.3" fill="var(--ambra)" stroke="none"/>
+              </svg>
+            </div>
+          </div>
+          <span class="freccia" aria-hidden="true">⌄</span>
+        </summary>
+        <div class="tappa-dettaglio">
+        <div class="tappa-riga tappa-riga-testo">
+          <div>
+            <p class="tappa-testo">A Carpegna l'Operazione Salvataggio si conclude:
+               chi vuole può fermarsi qui e tornare a casa con il Salvacondotto in
+               tasca, a pieno diritto. Ma per chi è più curioso e più allenato, il
+               Montefeltro offre una deviazione facoltativa: un anello che sale al
+               Sasso Simone, dove nel 1566 Cosimo I de' Medici tentò di costruire
+               una città-fortezza, la "Città del Sole", abbandonata dopo pochi anni
+               per il freddo; tocca il vicino Monte Simoncello; e raggiunge l'Eremo
+               della Madonna del Faggio, sulle pendici del Monte Carpegna,
+               documentato già nel 1205 e legato alla leggenda di un'apparizione
+               mariana a due pastori. Attenzione: l'ultimo bus per Pesaro parte
+               alle 17.</p>
+            <div class="dati" style="margin-top:.9rem"><span><b>20 km</b></span><span><b>860 m</b> <svg class="dislivello" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="var(--pietra)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 18 6M10 6h8v8"/></svg></span><span><b>856 m</b> <svg class="dislivello" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="var(--pietra)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6 18 18M18 10v8h-8"/></svg></span></div>
+          </div>
+          <div class="tappa-video-placeholder">Video in arrivo</div>
+        </div>
+        <div class="tappa-riga">
+          <a class="tappa-mappa-link" href="img/tappe/carpegna-extra-mappa-grande.webp" target="_blank" rel="noopener" title="Apri la mappa grande"><img class="tappa-mappa" src="img/tappe/carpegna-extra-mappa.webp" alt="Mappa dell'anello facoltativo da Carpegna al Sasso Simone, Monte Simoncello e Eremo della Madonna del Faggio, con marcatori di distanza ogni 5 km"></a>
+          <svg class="tappa-profilo" viewBox="0 0 640 270" preserveAspectRatio="none" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-label="Profilo altimetrico dell'anello da Carpegna: 20 km, quota da 720 a 1380 m, con Sasso Simone, Monte Simoncello e l'Eremo della Madonna del Faggio">
+            <rect x="6" y="6" width="628" height="258" rx="4" stroke="var(--ambra)" stroke-width="2"/>
+            <rect x="14" y="14" width="612" height="242" rx="2" stroke="var(--ambra)" stroke-width="1"/>
+            <circle cx="18" cy="18" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <circle cx="622" cy="18" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <circle cx="18" cy="252" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <circle cx="622" cy="252" r="3.5" fill="var(--carta)" stroke="var(--ambra)" stroke-width="1.5"/>
+            <line x1="34" y1="248.0" x2="622" y2="248.0" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".3"/>
+            <line x1="34" y1="181.1" x2="622" y2="181.1" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".18"/>
+            <line x1="34" y1="114.3" x2="622" y2="114.3" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".18"/>
+            <line x1="34" y1="47.4" x2="622" y2="47.4" stroke="var(--pietra)" stroke-width="1" stroke-opacity=".18"/>
+            <text x="30" y="251" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">700 m</text>
+            <text x="30" y="184" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">900</text>
+            <text x="30" y="117" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">1100</text>
+            <text x="30" y="50" text-anchor="end" font-family="Archivo,sans-serif" font-size="8.5" fill="var(--pietra)">1300 m</text>
+            <path d="M 34.0 235.7 L 34.6 236.2 L 35.6 237.0 L 38.8 237.7 L 40.1 238.5 L 43.1 239.5 L 45.3 240.5 L 48.0 241.2 L 53.1 241.7 L 56.3 241.8 L 58.3 241.6 L 59.2 241.0 L 59.7 240.1 L 62.5 239.0 L 65.0 237.9 L 67.4 236.6 L 69.7 235.2 L 71.1 233.6 L 72.7 231.8 L 74.0 229.6 L 75.5 227.5 L 77.9 225.1 L 82.5 222.6 L 84.0 219.9 L 85.7 217.2 L 87.6 214.5 L 89.7 212.3 L 92.6 210.0 L 94.8 207.7 L 97.2 205.2 L 100.4 202.5 L 102.8 199.9 L 103.8 197.3 L 108.0 194.8 L 110.5 192.4 L 111.8 189.1 L 112.9 184.7 L 114.0 181.0 L 123.5 177.3 L 132.3 173.7 L 134.1 170.2 L 136.0 166.6 L 137.6 163.5 L 139.6 161.5 L 142.4 160.0 L 145.2 158.5 L 146.4 157.1 L 149.3 155.6 L 150.5 154.2 L 151.1 152.9 L 152.5 151.6 L 153.6 150.5 L 155.2 149.4 L 156.8 148.2 L 158.7 147.0 L 160.4 145.6 L 162.6 144.3 L 163.6 142.9 L 167.7 141.5 L 168.6 140.3 L 169.4 139.0 L 170.5 137.7 L 170.9 136.4 L 171.6 135.1 L 172.8 133.7 L 174.4 131.9 L 176.2 130.2 L 177.7 128.4 L 180.3 126.7 L 181.2 125.1 L 181.7 123.6 L 182.7 122.0 L 183.2 120.2 L 184.6 118.4 L 186.0 116.6 L 188.6 114.8 L 191.1 113.0 L 191.6 111.2 L 192.8 109.6 L 195.0 108.3 L 196.7 107.4 L 197.6 106.3 L 198.7 105.3 L 200.2 104.2 L 201.9 102.9 L 202.4 101.5 L 203.6 99.7 L 204.7 98.0 L 205.7 96.2 L 208.7 94.2 L 209.4 92.2 L 210.4 90.5 L 212.0 89.2 L 213.6 88.5 L 213.8 88.0 L 215.7 87.8 L 216.4 87.9 L 217.0 88.3 L 217.4 88.8 L 217.7 89.2 L 218.2 89.6 L 218.9 90.0 L 219.3 90.3 L 219.6 90.7 L 219.9 91.2 L 220.2 91.7 L 220.6 92.3 L 221.4 93.0 L 221.9 93.7 L 222.6 94.5 L 223.1 95.3 L 224.0 96.0 L 224.5 96.7 L 225.0 97.3 L 225.5 97.8 L 226.0 98.3 L 226.5 98.6 L 227.5 99.0 L 228.4 99.6 L 228.9 100.5 L 229.8 101.6 L 232.4 102.7 L 235.4 104.1 L 237.4 105.7 L 238.7 107.4 L 240.2 109.0 L 241.8 110.5 L 243.0 111.9 L 244.7 113.3 L 246.8 114.8 L 249.0 116.4 L 250.6 117.9 L 255.1 119.3 L 258.8 120.8 L 261.1 122.4 L 262.7 124.2 L 264.2 126.1 L 269.6 128.2 L 273.1 130.6 L 275.2 133.3 L 279.9 136.1 L 283.5 138.7 L 288.6 141.2 L 289.5 143.6 L 290.5 145.5 L 294.1 147.1 L 295.5 148.2 L 296.7 149.1 L 298.2 149.8 L 300.2 150.2 L 301.8 150.3 L 302.7 150.2 L 303.9 150.0 L 306.4 149.6 L 308.6 149.0 L 309.8 148.4 L 311.3 147.8 L 312.2 147.2 L 313.7 146.8 L 315.5 146.6 L 317.2 146.6 L 319.5 146.7 L 320.9 147.2 L 322.7 147.7 L 323.7 148.4 L 325.7 149.1 L 327.2 149.4 L 329.6 149.4 L 334.3 149.0 L 337.0 148.4 L 341.4 147.5 L 343.3 146.5 L 345.7 145.2 L 346.5 143.7 L 348.3 142.3 L 349.7 140.8 L 351.1 139.4 L 352.9 137.8 L 353.9 136.1 L 354.6 134.1 L 355.5 131.9 L 356.4 129.8 L 358.2 127.8 L 359.6 125.5 L 360.9 123.2 L 361.7 121.1 L 363.0 119.1 L 364.0 117.4 L 364.8 115.8 L 365.3 114.3 L 366.1 112.8 L 367.1 111.0 L 367.6 109.2 L 368.2 107.2 L 370.4 105.2 L 371.7 103.4 L 372.7 101.4 L 373.0 99.3 L 373.3 97.4 L 374.5 95.7 L 376.0 94.1 L 377.3 92.4 L 377.9 90.7 L 378.8 89.1 L 379.9 87.8 L 380.2 86.5 L 380.6 85.1 L 381.4 83.5 L 382.1 82.0 L 383.9 80.3 L 384.4 78.3 L 386.1 76.3 L 387.4 74.3 L 388.3 72.5 L 389.3 70.6 L 390.0 68.7 L 390.5 66.6 L 391.6 64.5 L 392.5 62.3 L 394.9 60.2 L 396.1 57.9 L 397.3 55.4 L 398.0 53.1 L 399.6 51.2 L 401.0 49.2 L 401.8 47.4 L 402.7 45.7 L 405.5 44.0 L 406.6 42.5 L 407.7 41.0 L 409.5 39.4 L 411.3 38.1 L 413.0 36.9 L 414.7 35.6 L 416.2 34.4 L 417.6 33.4 L 420.1 32.6 L 422.1 31.8 L 424.7 31.1 L 426.6 30.4 L 428.0 29.7 L 429.3 29.1 L 430.8 28.5 L 433.3 27.9 L 434.1 27.4 L 434.8 27.0 L 435.6 26.5 L 436.0 26.2 L 436.4 25.6 L 437.9 24.9 L 438.4 24.1 L 439.2 23.3 L 443.6 22.4 L 445.2 21.5 L 445.3 20.8 L 451.8 20.3 L 454.7 20.7 L 454.8 21.5 L 456.1 22.6 L 459.7 24.2 L 462.2 27.1 L 463.5 31.1 L 464.0 35.2 L 465.4 39.3 L 471.4 42.9 L 472.0 46.3 L 472.8 49.5 L 473.8 52.4 L 474.3 53.2 L 474.7 54.1 L 475.2 54.8 L 475.7 55.3 L 476.4 55.4 L 478.1 55.4 L 480.1 55.4 L 481.6 55.4 L 485.7 55.3 L 486.8 55.1 L 489.0 55.3 L 490.0 55.7 L 490.8 56.7 L 495.3 57.8 L 496.2 59.1 L 497.6 60.9 L 500.4 63.1 L 502.2 65.2 L 504.8 67.1 L 507.9 69.2 L 508.9 71.3 L 509.3 73.4 L 511.1 75.5 L 512.4 77.4 L 513.7 79.5 L 514.0 81.9 L 515.6 84.4 L 517.1 86.9 L 518.2 89.5 L 519.7 92.3 L 520.5 95.4 L 521.8 98.6 L 522.3 101.7 L 525.1 104.8 L 526.4 107.8 L 527.5 111.1 L 528.6 114.2 L 529.9 117.1 L 531.2 119.6 L 531.9 122.1 L 532.8 124.6 L 533.5 126.8 L 534.6 129.0 L 535.4 131.2 L 536.1 133.6 L 536.8 135.9 L 538.1 138.1 L 540.2 140.3 L 541.3 142.7 L 542.3 145.1 L 545.4 147.3 L 547.8 149.3 L 550.2 151.4 L 551.0 153.4 L 552.5 155.2 L 555.3 157.0 L 556.0 158.8 L 556.8 160.6 L 558.1 162.7 L 560.2 164.7 L 561.4 166.6 L 562.5 168.9 L 563.8 171.2 L 564.3 173.2 L 565.3 175.2 L 566.5 177.2 L 567.0 179.1 L 567.5 181.4 L 568.3 184.1 L 569.0 186.9 L 570.6 189.8 L 572.2 192.8 L 574.0 195.8 L 574.7 198.9 L 576.5 201.8 L 577.2 204.2 L 579.1 206.1 L 581.0 208.1 L 582.2 209.8 L 584.5 211.6 L 586.9 213.1 L 587.7 214.5 L 589.9 215.8 L 591.7 217.5 L 594.7 219.4 L 597.2 221.4 L 600.3 223.4 L 604.1 225.4 L 606.4 227.4 L 608.0 229.5 L 609.0 231.2 L 611.5 232.3 L 613.6 233.1 L 614.4 233.6 L 615.0 234.0 L 618.4 234.2 L 619.7 234.3 L 621.0 234.3 L 623.0 234.2 L 623.0 248.0 L 34.0 248.0 Z" fill="var(--carta-scura)"/>
+            <path d="M 34.0 235.7 L 34.6 236.2 L 35.6 237.0 L 38.8 237.7 L 40.1 238.5 L 43.1 239.5 L 45.3 240.5 L 48.0 241.2 L 53.1 241.7 L 56.3 241.8 L 58.3 241.6 L 59.2 241.0 L 59.7 240.1 L 62.5 239.0 L 65.0 237.9 L 67.4 236.6 L 69.7 235.2 L 71.1 233.6 L 72.7 231.8 L 74.0 229.6 L 75.5 227.5 L 77.9 225.1 L 82.5 222.6 L 84.0 219.9 L 85.7 217.2 L 87.6 214.5 L 89.7 212.3 L 92.6 210.0 L 94.8 207.7 L 97.2 205.2 L 100.4 202.5 L 102.8 199.9 L 103.8 197.3 L 108.0 194.8 L 110.5 192.4 L 111.8 189.1 L 112.9 184.7 L 114.0 181.0 L 123.5 177.3 L 132.3 173.7 L 134.1 170.2 L 136.0 166.6 L 137.6 163.5 L 139.6 161.5 L 142.4 160.0 L 145.2 158.5 L 146.4 157.1 L 149.3 155.6 L 150.5 154.2 L 151.1 152.9 L 152.5 151.6 L 153.6 150.5 L 155.2 149.4 L 156.8 148.2 L 158.7 147.0 L 160.4 145.6 L 162.6 144.3 L 163.6 142.9 L 167.7 141.5 L 168.6 140.3 L 169.4 139.0 L 170.5 137.7 L 170.9 136.4 L 171.6 135.1 L 172.8 133.7 L 174.4 131.9 L 176.2 130.2 L 177.7 128.4 L 180.3 126.7 L 181.2 125.1 L 181.7 123.6 L 182.7 122.0 L 183.2 120.2 L 184.6 118.4 L 186.0 116.6 L 188.6 114.8 L 191.1 113.0 L 191.6 111.2 L 192.8 109.6 L 195.0 108.3 L 196.7 107.4 L 197.6 106.3 L 198.7 105.3 L 200.2 104.2 L 201.9 102.9 L 202.4 101.5 L 203.6 99.7 L 204.7 98.0 L 205.7 96.2 L 208.7 94.2 L 209.4 92.2 L 210.4 90.5 L 212.0 89.2 L 213.6 88.5 L 213.8 88.0 L 215.7 87.8 L 216.4 87.9 L 217.0 88.3 L 217.4 88.8 L 217.7 89.2 L 218.2 89.6 L 218.9 90.0 L 219.3 90.3 L 219.6 90.7 L 219.9 91.2 L 220.2 91.7 L 220.6 92.3 L 221.4 93.0 L 221.9 93.7 L 222.6 94.5 L 223.1 95.3 L 224.0 96.0 L 224.5 96.7 L 225.0 97.3 L 225.5 97.8 L 226.0 98.3 L 226.5 98.6 L 227.5 99.0 L 228.4 99.6 L 228.9 100.5 L 229.8 101.6 L 232.4 102.7 L 235.4 104.1 L 237.4 105.7 L 238.7 107.4 L 240.2 109.0 L 241.8 110.5 L 243.0 111.9 L 244.7 113.3 L 246.8 114.8 L 249.0 116.4 L 250.6 117.9 L 255.1 119.3 L 258.8 120.8 L 261.1 122.4 L 262.7 124.2 L 264.2 126.1 L 269.6 128.2 L 273.1 130.6 L 275.2 133.3 L 279.9 136.1 L 283.5 138.7 L 288.6 141.2 L 289.5 143.6 L 290.5 145.5 L 294.1 147.1 L 295.5 148.2 L 296.7 149.1 L 298.2 149.8 L 300.2 150.2 L 301.8 150.3 L 302.7 150.2 L 303.9 150.0 L 306.4 149.6 L 308.6 149.0 L 309.8 148.4 L 311.3 147.8 L 312.2 147.2 L 313.7 146.8 L 315.5 146.6 L 317.2 146.6 L 319.5 146.7 L 320.9 147.2 L 322.7 147.7 L 323.7 148.4 L 325.7 149.1 L 327.2 149.4 L 329.6 149.4 L 334.3 149.0 L 337.0 148.4 L 341.4 147.5 L 343.3 146.5 L 345.7 145.2 L 346.5 143.7 L 348.3 142.3 L 349.7 140.8 L 351.1 139.4 L 352.9 137.8 L 353.9 136.1 L 354.6 134.1 L 355.5 131.9 L 356.4 129.8 L 358.2 127.8 L 359.6 125.5 L 360.9 123.2 L 361.7 121.1 L 363.0 119.1 L 364.0 117.4 L 364.8 115.8 L 365.3 114.3 L 366.1 112.8 L 367.1 111.0 L 367.6 109.2 L 368.2 107.2 L 370.4 105.2 L 371.7 103.4 L 372.7 101.4 L 373.0 99.3 L 373.3 97.4 L 374.5 95.7 L 376.0 94.1 L 377.3 92.4 L 377.9 90.7 L 378.8 89.1 L 379.9 87.8 L 380.2 86.5 L 380.6 85.1 L 381.4 83.5 L 382.1 82.0 L 383.9 80.3 L 384.4 78.3 L 386.1 76.3 L 387.4 74.3 L 388.3 72.5 L 389.3 70.6 L 390.0 68.7 L 390.5 66.6 L 391.6 64.5 L 392.5 62.3 L 394.9 60.2 L 396.1 57.9 L 397.3 55.4 L 398.0 53.1 L 399.6 51.2 L 401.0 49.2 L 401.8 47.4 L 402.7 45.7 L 405.5 44.0 L 406.6 42.5 L 407.7 41.0 L 409.5 39.4 L 411.3 38.1 L 413.0 36.9 L 414.7 35.6 L 416.2 34.4 L 417.6 33.4 L 420.1 32.6 L 422.1 31.8 L 424.7 31.1 L 426.6 30.4 L 428.0 29.7 L 429.3 29.1 L 430.8 28.5 L 433.3 27.9 L 434.1 27.4 L 434.8 27.0 L 435.6 26.5 L 436.0 26.2 L 436.4 25.6 L 437.9 24.9 L 438.4 24.1 L 439.2 23.3 L 443.6 22.4 L 445.2 21.5 L 445.3 20.8 L 451.8 20.3 L 454.7 20.7 L 454.8 21.5 L 456.1 22.6 L 459.7 24.2 L 462.2 27.1 L 463.5 31.1 L 464.0 35.2 L 465.4 39.3 L 471.4 42.9 L 472.0 46.3 L 472.8 49.5 L 473.8 52.4 L 474.3 53.2 L 474.7 54.1 L 475.2 54.8 L 475.7 55.3 L 476.4 55.4 L 478.1 55.4 L 480.1 55.4 L 481.6 55.4 L 485.7 55.3 L 486.8 55.1 L 489.0 55.3 L 490.0 55.7 L 490.8 56.7 L 495.3 57.8 L 496.2 59.1 L 497.6 60.9 L 500.4 63.1 L 502.2 65.2 L 504.8 67.1 L 507.9 69.2 L 508.9 71.3 L 509.3 73.4 L 511.1 75.5 L 512.4 77.4 L 513.7 79.5 L 514.0 81.9 L 515.6 84.4 L 517.1 86.9 L 518.2 89.5 L 519.7 92.3 L 520.5 95.4 L 521.8 98.6 L 522.3 101.7 L 525.1 104.8 L 526.4 107.8 L 527.5 111.1 L 528.6 114.2 L 529.9 117.1 L 531.2 119.6 L 531.9 122.1 L 532.8 124.6 L 533.5 126.8 L 534.6 129.0 L 535.4 131.2 L 536.1 133.6 L 536.8 135.9 L 538.1 138.1 L 540.2 140.3 L 541.3 142.7 L 542.3 145.1 L 545.4 147.3 L 547.8 149.3 L 550.2 151.4 L 551.0 153.4 L 552.5 155.2 L 555.3 157.0 L 556.0 158.8 L 556.8 160.6 L 558.1 162.7 L 560.2 164.7 L 561.4 166.6 L 562.5 168.9 L 563.8 171.2 L 564.3 173.2 L 565.3 175.2 L 566.5 177.2 L 567.0 179.1 L 567.5 181.4 L 568.3 184.1 L 569.0 186.9 L 570.6 189.8 L 572.2 192.8 L 574.0 195.8 L 574.7 198.9 L 576.5 201.8 L 577.2 204.2 L 579.1 206.1 L 581.0 208.1 L 582.2 209.8 L 584.5 211.6 L 586.9 213.1 L 587.7 214.5 L 589.9 215.8 L 591.7 217.5 L 594.7 219.4 L 597.2 221.4 L 600.3 223.4 L 604.1 225.4 L 606.4 227.4 L 608.0 229.5 L 609.0 231.2 L 611.5 232.3 L 613.6 233.1 L 614.4 233.6 L 615.0 234.0 L 618.4 234.2 L 619.7 234.3 L 621.0 234.3 L 623.0 234.2" stroke="var(--ambra)" stroke-width="2.5"/>
+            <line x1="34" y1="248" x2="622" y2="248" stroke="var(--pietra)" stroke-width="1"/>
+            <line x1="181.2" y1="248" x2="181.2" y2="252" stroke="var(--pietra)" stroke-width="1"/>
+            <line x1="328.5" y1="248" x2="328.5" y2="252" stroke="var(--pietra)" stroke-width="1"/>
+            <line x1="475.7" y1="248" x2="475.7" y2="252" stroke="var(--pietra)" stroke-width="1"/>
+            <text x="34" y="264" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">Carpegna · 0 km</text>
+            <text x="181.2" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">5</text>
+            <text x="328.5" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">10</text>
+            <text x="475.7" y="264" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">15</text>
+            <text x="622" y="264" text-anchor="end" font-family="Archivo,sans-serif" font-size="9" fill="var(--pietra)">Carpegna · 20 km</text>
+            <path d="M210.3 82.5 l4 7 h-8 z" fill="var(--ambra)"/>
+            <text x="213.8" y="72.5" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Sasso Simone</text>
+            <path d="M225.4 95.0 l4 7 h-8 z" fill="var(--ambra)"/>
+            <text x="228.9" y="112" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Simoncello</text>
+            <path d="M472.2 46.8 h7 v4.5 h-7 z M472.2 46.8 l3.5-4 3.5 4 z" fill="var(--ambra)"/>
+            <text x="475.7" y="36.5" text-anchor="middle" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Eremo</text>
+            <path d="M451.8 20.3 l4 7 h-8 z" fill="var(--ambra)"/>
+            <text x="448" y="44" text-anchor="end" font-family="Archivo,sans-serif" font-size="9" fill="var(--inchiostro)">Monte Carpegna</text>
+          </svg>
+        </div>
+        <p class="tappa-credito">Mappa: © collaboratori di OpenStreetMap</p>
+        </div>
+      </details>
+    </div>
+    <p class="cta-fine"><a class="cta" href="https://synvium.flutterflow.app">Unisciti al Cammino</a></p>
+  </div>
+</section>
+
+<section class="crema" id="partire">
+  <div class="wrap">
+    <h2>Come si parte</h2>
+    <div class="passi">
+      <div class="passo">
+        <h3>Registrati e scarica l'app</h3>
+        <p>Riceverai la credenziale digitale, avrai accesso alle mappe ed
+           informazioni utili, e potrai unirti ad altri camminatori.</p>
+        <details class="installa">
+          <summary>Come installarla sul telefono</summary>
+          <p><b>iPhone</b> · apri l'app con Safari, tocca il tasto
+             <i>Condividi</i> (il quadrato con la freccia in su) e scegli
+             <i>Aggiungi alla schermata Home</i>.</p>
+          <p><b>Android</b> · apri l'app con Chrome, tocca il menu <i>⋮</i> in
+             alto a destra, scegli <i>Installa e crea scorciatoia</i> e poi
+             <i>Installa</i> (non <i>Crea scorciatoia</i>, che la aprirebbe dentro
+             Chrome). Su alcuni telefoni la voce si chiama <i>Installa app</i>.</p>
+        </details>
+      </div>
+      <div class="passo">
+        <h3>Pianifica il tuo Cammino</h3>
+        <p>Scegli la data in cui partire e decidi quali notti vuoi dormire sul
+           Cammino. Se sei flessibile, l'app ti mostrerà quando ci sono altri
+           camminatori.</p>
+      </div>
+      <div class="passo">
+        <h3>Comincia a camminare</h3>
+        <p>Arriva a Pesaro, recupera l'opera d'arte in centro e inizia la
+           risalita del San Bartolo. Buon Cammino!</p>
+        <p>Per tornare, da Carpegna la
+           <a href="https://www.adriabus.eu/" rel="noopener">linea 45 di Adriabus</a>
+           riporta a Pesaro nei giorni feriali.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chiara" id="credenziale">
+  <div class="wrap">
+    <div class="storia">
+      <div>
+        <h2>La Credenziale</h2>
+        <div class="prosa">
+          <p>Come in ogni cammino, si raccoglie un timbro per tappa. Qui ogni timbro è
+             una delle opere nascoste durante l'Operazione Salvataggio di Pasquale
+             Rotondi: la recuperi arrivando a fine tappa, e quando ci sono tutte e sei
+             avrai diritto al Salvacondotto per il rientro a casa. All'inizio la
+             credenziale è digitale, nell'app.</p>
+          <p class="pietra">Lungo la strada ci sono anche i trofei, dei riconoscimenti
+             minori ottenibili visitando luoghi secondari, o con deviazioni che valgono
+             la pena, o scoprendo qualche curiosità e segreto. Alcuni sono facili e
+             altri no, non sono indispensabili per il Salvacondotto ma te lo
+             arricchiranno con ulteriori meriti.</p>
+        </div>
+      </div>
+      <img class="credenziale-img" src="img/credenziale-app.webp" width="502" height="1024" alt="La credenziale nell'app sul telefono: le città del Cammino, ognuna con l'opera ancora da ritrovare">
+    </div>
+    <p class="cta-fine"><a class="cta" href="https://synvium.flutterflow.app">Unisciti al Cammino</a></p>
+  </div>
+</section>
+
+<section class="crema" id="pooling">
+  <div class="wrap">
+    <div class="pooling">
+      <div>
+        <h2>Condividere il Cammino vuol dire anche dividere i costi</h2>
+        <div class="prosa">
+          <p>Chi percorre il cammino nelle stesse date può dividere una camera, e
+             pagare una quota invece dell'intera stanza.</p>
+          <p class="pietra">La camera si prenota solo quando abbastanza persone
+             compatibili si sono impegnate insieme. Se il gruppo non si forma, non
+             paghi nulla.</p>
+        </div>
+      </div>
+      <div class="spiegazione">
+        <div>
+          <h3>Scegli con chi vuoi condividere la notte</h3>
+          <p>Vuoi stare da solo? Preferisci meno rumore in una doppia o tripla?
+             O vai per il massimo risparmio in una quadrupla?</p>
+        </div>
+        <div>
+          <h3>La stanza è prenotata solo a conferma di tutti</h3>
+          <p>Quando siete abbastanza, la richiesta parte alla struttura. Se accetta,
+             ognuno paga la propria quota individuale e la stanza viene condivisa.
+             Altrimenti non succede niente.</p>
+        </div>
+        <div>
+          <h3>Oppure porti i tuoi</h3>
+          <p>Se hai già dei compagni, create un gruppo chiuso con un codice e le camere
+             restano solo vostre.</p>
+        </div>
+      </div>
+    </div>
+    <p class="cta-fine"><a class="cta" href="https://synvium.flutterflow.app">Unisciti al Cammino</a></p>
+  </div>
+</section>
+
+<section class="scura" id="contatti">
+  <div class="wrap">
+    <h2>Contatti</h2>
+    <div class="prosa">
+      <p>Se sei un'amministrazione, una struttura ricettiva o un'associazione del
+         territorio e vuoi far parte del Cammino del Montefeltro, scrivi a:</p>
+      <p><a href="mailto:info@camminodelmontefeltro.it">info@camminodelmontefeltro.it</a></p>
+    </div>
+  </div>
+</section>
+
+<footer class="piede">
+  <div class="wrap">
+    <p class="titolare">Il Cammino del Montefeltro è un progetto di Synvium</p>
+    <p>P.IVA&nbsp;02875360410 · REA&nbsp;PS-314621 ·
+       PEC <a href="mailto:synvium@pec.it">synvium@pec.it</a></p>
+    <p>Mappe © collaboratori di <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a> ·
+       Illustrazione di copertina generata con IA ·
+       <a href="condizioni.html">Condizioni d'uso</a> · <a href="privacy.html">Privacy</a></p>
+  </div>
+</footer>
+
+<dialog class="mappa-dialog" id="mappa-dialog" aria-label="Mappa ingrandita">
+  <img src="" alt="">
+  <button type="button" aria-label="Chiudi la mappa">×</button>
+</dialog>
+<script>
+/* Mappe delle tappe: si aprono ingrandite sopra la pagina. Senza JavaScript il
+   link apre comunque l'immagine grande in una nuova scheda. */
+(function(){
+  var d=document.getElementById('mappa-dialog');
+  if(!d||!d.showModal)return;
+  var img=d.querySelector('img');
+  document.querySelectorAll('.tappa-mappa-link').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var small=a.querySelector('img');
+      img.src=a.getAttribute('href'); img.alt=small?small.alt:'';
+      d.showModal();
+    });
+  });
+  d.querySelector('button').addEventListener('click',function(){d.close();});
+  d.addEventListener('click',function(e){if(e.target===d)d.close();});
+  d.addEventListener('close',function(){img.src='';});
+})();
+</script>
+</body>
+</html>
