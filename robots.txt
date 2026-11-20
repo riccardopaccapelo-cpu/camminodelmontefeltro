@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://camminodelmontefeltro.it/sitemap.xml
+# Al lancio pubblico: togliere il noindex dalle pagine e rimettere la riga
+# Sitemap: https://camminodelmontefeltro.it/sitemap.xml
